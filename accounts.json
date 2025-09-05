@@ -1,0 +1,12 @@
+[
+  {
+    "account_id": "842676016323",
+    "role_name": "plt-security-ro",
+    "sso_profile": "data-geoparser-prod-1"
+  },
+  {
+    "account_id": "471112819776",
+    "role_name": "plt-security-ro",
+    "sso_profile": "Security"
+  }
+]

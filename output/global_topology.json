@@ -1,0 +1,809 @@
+{
+  "842676016323": {
+    "us-east-1": {
+      "vpcs": [],
+      "subnets": [],
+      "route_tables": [],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [],
+      "vpc_endpoints": [],
+      "enis": [],
+      "security_groups": [],
+      "nacls": [],
+      "load_balancers": [],
+      "tgw_attachments": [],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    },
+    "eu-west-1": {
+      "vpcs": [
+        {
+          "OwnerId": "842676016323",
+          "InstanceTenancy": "default",
+          "CidrBlockAssociationSet": [
+            {
+              "AssociationId": "vpc-cidr-assoc-0cf94ccabf0c349f5",
+              "CidrBlock": "10.0.22.0/23",
+              "CidrBlockState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "IsDefault": false,
+          "Tags": [
+            {
+              "Key": "accelerator:use-central-endpoints",
+              "Value": "true"
+            },
+            {
+              "Key": "aws:cloudformation:stack-id",
+              "Value": "arn:aws:cloudformation:eu-west-1:842676016323:stack/AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1/83c173b0-e498-11ef-852e-06e41ebffa13"
+            },
+            {
+              "Key": "aws:cloudformation:stack-name",
+              "Value": "AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1"
+            },
+            {
+              "Key": "vpc_type",
+              "Value": "workload"
+            },
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "accelerator:central-endpoints-account-id",
+              "Value": "590183832485"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod"
+            },
+            {
+              "Key": "aws:cloudformation:logical-id",
+              "Value": "LzaMedium2AzIrelandProdVpc596F1B9A"
+            },
+            {
+              "Key": "env",
+              "Value": "prod"
+            }
+          ],
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "State": "available",
+          "CidrBlock": "10.0.22.0/23",
+          "DhcpOptionsId": "dopt-00730e297c501ede5"
+        }
+      ],
+      "subnets": [
+        {
+          "AvailabilityZoneId": "euw1-az2",
+          "MapCustomerOwnedIpOnLaunch": false,
+          "OwnerId": "842676016323",
+          "AssignIpv6AddressOnCreation": false,
+          "Ipv6CidrBlockAssociationSet": [],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-TgwAttach-A"
+            }
+          ],
+          "SubnetArn": "arn:aws:ec2:eu-west-1:842676016323:subnet/subnet-01276a2da797f24bb",
+          "EnableDns64": false,
+          "Ipv6Native": false,
+          "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "ip-name",
+            "EnableResourceNameDnsARecord": false,
+            "EnableResourceNameDnsAAAARecord": false
+          },
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "SubnetId": "subnet-01276a2da797f24bb",
+          "State": "available",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "CidrBlock": "10.0.23.0/28",
+          "AvailableIpAddressCount": 10,
+          "AvailabilityZone": "eu-west-1a",
+          "DefaultForAz": false,
+          "MapPublicIpOnLaunch": false
+        },
+        {
+          "AvailabilityZoneId": "euw1-az2",
+          "MapCustomerOwnedIpOnLaunch": false,
+          "OwnerId": "842676016323",
+          "AssignIpv6AddressOnCreation": false,
+          "Ipv6CidrBlockAssociationSet": [],
+          "Tags": [
+            {
+              "Key": "subnet_type",
+              "Value": "routable"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Workloads-A"
+            }
+          ],
+          "SubnetArn": "arn:aws:ec2:eu-west-1:842676016323:subnet/subnet-0807f9ef0a844be95",
+          "EnableDns64": false,
+          "Ipv6Native": false,
+          "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "ip-name",
+            "EnableResourceNameDnsARecord": false,
+            "EnableResourceNameDnsAAAARecord": false
+          },
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "SubnetId": "subnet-0807f9ef0a844be95",
+          "State": "available",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "CidrBlock": "10.0.22.0/25",
+          "AvailableIpAddressCount": 123,
+          "AvailabilityZone": "eu-west-1a",
+          "DefaultForAz": false,
+          "MapPublicIpOnLaunch": false
+        },
+        {
+          "AvailabilityZoneId": "euw1-az3",
+          "MapCustomerOwnedIpOnLaunch": false,
+          "OwnerId": "842676016323",
+          "AssignIpv6AddressOnCreation": false,
+          "Ipv6CidrBlockAssociationSet": [],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Workloads-B"
+            },
+            {
+              "Key": "subnet_type",
+              "Value": "routable"
+            }
+          ],
+          "SubnetArn": "arn:aws:ec2:eu-west-1:842676016323:subnet/subnet-06c1c929db11cdfd5",
+          "EnableDns64": false,
+          "Ipv6Native": false,
+          "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "ip-name",
+            "EnableResourceNameDnsARecord": false,
+            "EnableResourceNameDnsAAAARecord": false
+          },
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "SubnetId": "subnet-06c1c929db11cdfd5",
+          "State": "available",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "CidrBlock": "10.0.22.128/25",
+          "AvailableIpAddressCount": 123,
+          "AvailabilityZone": "eu-west-1b",
+          "DefaultForAz": false,
+          "MapPublicIpOnLaunch": false
+        },
+        {
+          "AvailabilityZoneId": "euw1-az3",
+          "MapCustomerOwnedIpOnLaunch": false,
+          "OwnerId": "842676016323",
+          "AssignIpv6AddressOnCreation": false,
+          "Ipv6CidrBlockAssociationSet": [],
+          "Tags": [
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-TgwAttach-B"
+            }
+          ],
+          "SubnetArn": "arn:aws:ec2:eu-west-1:842676016323:subnet/subnet-04f29782a82a6b946",
+          "EnableDns64": false,
+          "Ipv6Native": false,
+          "PrivateDnsNameOptionsOnLaunch": {
+            "HostnameType": "ip-name",
+            "EnableResourceNameDnsARecord": false,
+            "EnableResourceNameDnsAAAARecord": false
+          },
+          "BlockPublicAccessStates": {
+            "InternetGatewayBlockMode": "off"
+          },
+          "SubnetId": "subnet-04f29782a82a6b946",
+          "State": "available",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "CidrBlock": "10.0.23.16/28",
+          "AvailableIpAddressCount": 10,
+          "AvailabilityZone": "eu-west-1b",
+          "DefaultForAz": false,
+          "MapPublicIpOnLaunch": false
+        }
+      ],
+      "route_tables": [
+        {
+          "Associations": [
+            {
+              "Main": true,
+              "RouteTableAssociationId": "rtbassoc-0259966f95619418a",
+              "RouteTableId": "rtb-05e16cbe9c9e291ba",
+              "AssociationState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "PropagatingVgws": [],
+          "RouteTableId": "rtb-05e16cbe9c9e291ba",
+          "Routes": [
+            {
+              "DestinationCidrBlock": "10.0.22.0/23",
+              "GatewayId": "local",
+              "Origin": "CreateRouteTable",
+              "State": "active"
+            }
+          ],
+          "Tags": [],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        },
+        {
+          "Associations": [
+            {
+              "Main": false,
+              "RouteTableAssociationId": "rtbassoc-0e9f9393e4fee93ec",
+              "RouteTableId": "rtb-0f9cd5f6606a0a0bb",
+              "SubnetId": "subnet-04f29782a82a6b946",
+              "AssociationState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "PropagatingVgws": [],
+          "RouteTableId": "rtb-0f9cd5f6606a0a0bb",
+          "Routes": [
+            {
+              "DestinationCidrBlock": "10.0.22.0/23",
+              "GatewayId": "local",
+              "Origin": "CreateRouteTable",
+              "State": "active"
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "aws:cloudformation:stack-name",
+              "Value": "AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Tgw-B"
+            },
+            {
+              "Key": "aws:cloudformation:logical-id",
+              "Value": "LzaMedium2AzIrelandProdVpcLzaMedium2AzIrelandProdTgwBRouteTable168370FA"
+            },
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "aws:cloudformation:stack-id",
+              "Value": "arn:aws:cloudformation:eu-west-1:842676016323:stack/AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1/83c173b0-e498-11ef-852e-06e41ebffa13"
+            }
+          ],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        },
+        {
+          "Associations": [
+            {
+              "Main": false,
+              "RouteTableAssociationId": "rtbassoc-0a6b69866f09195b6",
+              "RouteTableId": "rtb-0664a7435d4e517c0",
+              "SubnetId": "subnet-01276a2da797f24bb",
+              "AssociationState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "PropagatingVgws": [],
+          "RouteTableId": "rtb-0664a7435d4e517c0",
+          "Routes": [
+            {
+              "DestinationCidrBlock": "10.0.22.0/23",
+              "GatewayId": "local",
+              "Origin": "CreateRouteTable",
+              "State": "active"
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "aws:cloudformation:logical-id",
+              "Value": "LzaMedium2AzIrelandProdVpcLzaMedium2AzIrelandProdTgwARouteTable2E2BB3BC"
+            },
+            {
+              "Key": "aws:cloudformation:stack-name",
+              "Value": "AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1"
+            },
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Tgw-A"
+            },
+            {
+              "Key": "aws:cloudformation:stack-id",
+              "Value": "arn:aws:cloudformation:eu-west-1:842676016323:stack/AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1/83c173b0-e498-11ef-852e-06e41ebffa13"
+            }
+          ],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        },
+        {
+          "Associations": [
+            {
+              "Main": false,
+              "RouteTableAssociationId": "rtbassoc-05cb53e698e782378",
+              "RouteTableId": "rtb-071f5e25f266d53cc",
+              "SubnetId": "subnet-0807f9ef0a844be95",
+              "AssociationState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "PropagatingVgws": [],
+          "RouteTableId": "rtb-071f5e25f266d53cc",
+          "Routes": [
+            {
+              "DestinationCidrBlock": "10.0.22.0/23",
+              "GatewayId": "local",
+              "Origin": "CreateRouteTable",
+              "State": "active"
+            },
+            {
+              "DestinationCidrBlock": "0.0.0.0/0",
+              "TransitGatewayId": "tgw-0ad54e4ecf4d0309f",
+              "Origin": "CreateRoute",
+              "State": "active"
+            },
+            {
+              "DestinationPrefixListId": "pl-6da54004",
+              "GatewayId": "vpce-024e54cd242b9307b",
+              "Origin": "CreateRoute",
+              "State": "active"
+            },
+            {
+              "DestinationPrefixListId": "pl-6fa54006",
+              "GatewayId": "vpce-07978388d3d502d81",
+              "Origin": "CreateRoute",
+              "State": "active"
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "aws:cloudformation:stack-name",
+              "Value": "AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1"
+            },
+            {
+              "Key": "aws:cloudformation:logical-id",
+              "Value": "LzaMedium2AzIrelandProdVpcLzaMedium2AzIrelandProdWorkloadsARouteTable84666B9D"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Workloads-A"
+            },
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "aws:cloudformation:stack-id",
+              "Value": "arn:aws:cloudformation:eu-west-1:842676016323:stack/AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1/83c173b0-e498-11ef-852e-06e41ebffa13"
+            }
+          ],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        },
+        {
+          "Associations": [
+            {
+              "Main": false,
+              "RouteTableAssociationId": "rtbassoc-0e9e28a8427da4d35",
+              "RouteTableId": "rtb-0786395883f0cb601",
+              "SubnetId": "subnet-06c1c929db11cdfd5",
+              "AssociationState": {
+                "State": "associated"
+              }
+            }
+          ],
+          "PropagatingVgws": [],
+          "RouteTableId": "rtb-0786395883f0cb601",
+          "Routes": [
+            {
+              "DestinationCidrBlock": "10.0.22.0/23",
+              "GatewayId": "local",
+              "Origin": "CreateRouteTable",
+              "State": "active"
+            },
+            {
+              "DestinationCidrBlock": "0.0.0.0/0",
+              "TransitGatewayId": "tgw-0ad54e4ecf4d0309f",
+              "Origin": "CreateRoute",
+              "State": "active"
+            },
+            {
+              "DestinationPrefixListId": "pl-6da54004",
+              "GatewayId": "vpce-024e54cd242b9307b",
+              "Origin": "CreateRoute",
+              "State": "active"
+            },
+            {
+              "DestinationPrefixListId": "pl-6fa54006",
+              "GatewayId": "vpce-07978388d3d502d81",
+              "Origin": "CreateRoute",
+              "State": "active"
+            }
+          ],
+          "Tags": [
+            {
+              "Key": "aws:cloudformation:stack-id",
+              "Value": "arn:aws:cloudformation:eu-west-1:842676016323:stack/AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1/83c173b0-e498-11ef-852e-06e41ebffa13"
+            },
+            {
+              "Key": "aws:cloudformation:stack-name",
+              "Value": "AWSAccelerator-NetworkVpcStack-842676016323-eu-west-1"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod-Workloads-B"
+            },
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "aws:cloudformation:logical-id",
+              "Value": "LzaMedium2AzIrelandProdVpcLzaMedium2AzIrelandProdWorkloadsBRouteTable30CBB442"
+            }
+          ],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        }
+      ],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [
+        {
+          "TransitGatewayId": "tgw-0ad54e4ecf4d0309f",
+          "TransitGatewayArn": "arn:aws:ec2:eu-west-1:590183832485:transit-gateway/tgw-0ad54e4ecf4d0309f",
+          "State": "available",
+          "OwnerId": "590183832485",
+          "CreationTime": "2024-07-17T10:04:15+00:00",
+          "Options": {
+            "AmazonSideAsn": 65521,
+            "AutoAcceptSharedAttachments": "enable",
+            "DefaultRouteTableAssociation": "disable",
+            "DefaultRouteTablePropagation": "disable",
+            "VpnEcmpSupport": "enable",
+            "DnsSupport": "enable",
+            "SecurityGroupReferencingSupport": "disable",
+            "MulticastSupport": "disable"
+          },
+          "Tags": []
+        }
+      ],
+      "vpc_endpoints": [
+        {
+          "VpcEndpointId": "vpce-024e54cd242b9307b",
+          "VpcEndpointType": "Gateway",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "ServiceName": "com.amazonaws.eu-west-1.s3",
+          "State": "available",
+          "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowRequestsByOrgsIdentities\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"*\",\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalOrgID\":\"o-3iievsgozx\"}}},{\"Sid\":\"AllowRequestsByAWSServicePrincipals\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"*\",\"Resource\":\"*\",\"Condition\":{\"Bool\":{\"aws:PrincipalIsAWSService\":\"true\"}}},{\"Sid\":\"AllowUnauthenticatedGetObject\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"s3:GetObject\",\"Resource\":\"*\"},{\"Sid\":\"AllowRequestsFromDatabricks\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":[\"s3:DeleteObject\",\"s3:GetBucketLocation\",\"s3:GetObject\",\"s3:GetObjectVersion\",\"s3:ListBucket\",\"s3:PutObject\"],\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalAccount\":[\"414351767826\",\"088579281390\"]}}}]}",
+          "RouteTableIds": [
+            "rtb-071f5e25f266d53cc",
+            "rtb-0786395883f0cb601"
+          ],
+          "SubnetIds": [],
+          "Groups": [],
+          "PrivateDnsEnabled": false,
+          "RequesterManaged": false,
+          "NetworkInterfaceIds": [],
+          "DnsEntries": [],
+          "CreationTimestamp": "2025-02-06T14:45:19+00:00",
+          "Tags": [],
+          "OwnerId": "842676016323",
+          "ServiceRegion": "eu-west-1"
+        },
+        {
+          "VpcEndpointId": "vpce-07978388d3d502d81",
+          "VpcEndpointType": "Gateway",
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "ServiceName": "com.amazonaws.eu-west-1.dynamodb",
+          "State": "available",
+          "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowRequestsByOrgsIdentities\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"*\",\"Resource\":\"*\",\"Condition\":{\"StringEquals\":{\"aws:PrincipalOrgID\":\"o-3iievsgozx\"}}},{\"Sid\":\"AllowRequestsByAWSServicePrincipals\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"*\",\"Resource\":\"*\",\"Condition\":{\"Bool\":{\"aws:PrincipalIsAWSService\":\"true\"}}}]}",
+          "RouteTableIds": [
+            "rtb-071f5e25f266d53cc",
+            "rtb-0786395883f0cb601"
+          ],
+          "SubnetIds": [],
+          "Groups": [],
+          "PrivateDnsEnabled": false,
+          "RequesterManaged": false,
+          "NetworkInterfaceIds": [],
+          "DnsEntries": [],
+          "CreationTimestamp": "2025-02-06T14:45:19+00:00",
+          "Tags": [],
+          "OwnerId": "842676016323",
+          "ServiceRegion": "eu-west-1"
+        }
+      ],
+      "enis": [
+        {
+          "Attachment": {
+            "AttachmentId": "ela-attach-0c0614cce8cc40538",
+            "DeleteOnTermination": false,
+            "DeviceIndex": 1,
+            "InstanceOwnerId": "amazon-aws",
+            "Status": "attached"
+          },
+          "AvailabilityZone": "eu-west-1b",
+          "Description": "Network Interface for Transit Gateway Attachment tgw-attach-0d050b51505e89942",
+          "Groups": [],
+          "InterfaceType": "transit_gateway",
+          "Ipv6Addresses": [],
+          "MacAddress": "0a:5a:12:3c:18:45",
+          "NetworkInterfaceId": "eni-0e03a77ac5803fdf3",
+          "OwnerId": "842676016323",
+          "PrivateDnsName": "ip-10-0-23-26.eu-west-1.compute.internal",
+          "PublicDnsName": "",
+          "PrivateIpAddress": "10.0.23.26",
+          "PrivateIpAddresses": [
+            {
+              "Primary": true,
+              "PrivateDnsName": "ip-10-0-23-26.eu-west-1.compute.internal",
+              "PrivateIpAddress": "10.0.23.26"
+            }
+          ],
+          "RequesterId": "993147039706",
+          "RequesterManaged": false,
+          "SourceDestCheck": false,
+          "Status": "in-use",
+          "SubnetId": "subnet-04f29782a82a6b946",
+          "TagSet": [],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "Operator": {
+            "Managed": false
+          }
+        },
+        {
+          "Attachment": {
+            "AttachmentId": "ela-attach-0f682dc3248c932e5",
+            "DeleteOnTermination": false,
+            "DeviceIndex": 1,
+            "InstanceOwnerId": "amazon-aws",
+            "Status": "attached"
+          },
+          "AvailabilityZone": "eu-west-1a",
+          "Description": "Network Interface for Transit Gateway Attachment tgw-attach-0d050b51505e89942",
+          "Groups": [],
+          "InterfaceType": "transit_gateway",
+          "Ipv6Addresses": [],
+          "MacAddress": "06:ba:55:22:d0:4f",
+          "NetworkInterfaceId": "eni-0e4b90fc2ce21527b",
+          "OwnerId": "842676016323",
+          "PrivateDnsName": "ip-10-0-23-8.eu-west-1.compute.internal",
+          "PublicDnsName": "",
+          "PrivateIpAddress": "10.0.23.8",
+          "PrivateIpAddresses": [
+            {
+              "Primary": true,
+              "PrivateDnsName": "ip-10-0-23-8.eu-west-1.compute.internal",
+              "PrivateIpAddress": "10.0.23.8"
+            }
+          ],
+          "RequesterId": "993147039706",
+          "RequesterManaged": false,
+          "SourceDestCheck": false,
+          "Status": "in-use",
+          "SubnetId": "subnet-01276a2da797f24bb",
+          "TagSet": [],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "Operator": {
+            "Managed": false
+          }
+        }
+      ],
+      "security_groups": [
+        {
+          "GroupId": "sg-06359504e81a7d9ac",
+          "IpPermissionsEgress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "SecurityGroupArn": "arn:aws:ec2:eu-west-1:842676016323:security-group/sg-06359504e81a7d9ac",
+          "OwnerId": "842676016323",
+          "GroupName": "default",
+          "Description": "default VPC security group",
+          "IpPermissions": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [
+                {
+                  "UserId": "842676016323",
+                  "GroupId": "sg-06359504e81a7d9ac"
+                }
+              ],
+              "IpRanges": [],
+              "Ipv6Ranges": [],
+              "PrefixListIds": []
+            }
+          ]
+        }
+      ],
+      "nacls": [
+        {
+          "Associations": [
+            {
+              "NetworkAclAssociationId": "aclassoc-0c6f64c8aa873ba80",
+              "NetworkAclId": "acl-00190f3b5f8f3bc4c",
+              "SubnetId": "subnet-06c1c929db11cdfd5"
+            },
+            {
+              "NetworkAclAssociationId": "aclassoc-07e03d6ae49999162",
+              "NetworkAclId": "acl-00190f3b5f8f3bc4c",
+              "SubnetId": "subnet-04f29782a82a6b946"
+            },
+            {
+              "NetworkAclAssociationId": "aclassoc-08cb136ca40f88579",
+              "NetworkAclId": "acl-00190f3b5f8f3bc4c",
+              "SubnetId": "subnet-01276a2da797f24bb"
+            },
+            {
+              "NetworkAclAssociationId": "aclassoc-0c45febdb57f51a87",
+              "NetworkAclId": "acl-00190f3b5f8f3bc4c",
+              "SubnetId": "subnet-0807f9ef0a844be95"
+            }
+          ],
+          "Entries": [
+            {
+              "CidrBlock": "0.0.0.0/0",
+              "Egress": true,
+              "Protocol": "-1",
+              "RuleAction": "allow",
+              "RuleNumber": 100
+            },
+            {
+              "CidrBlock": "0.0.0.0/0",
+              "Egress": true,
+              "Protocol": "-1",
+              "RuleAction": "deny",
+              "RuleNumber": 32767
+            },
+            {
+              "CidrBlock": "0.0.0.0/0",
+              "Egress": false,
+              "Protocol": "-1",
+              "RuleAction": "allow",
+              "RuleNumber": 100
+            },
+            {
+              "CidrBlock": "0.0.0.0/0",
+              "Egress": false,
+              "Protocol": "-1",
+              "RuleAction": "deny",
+              "RuleNumber": 32767
+            }
+          ],
+          "IsDefault": true,
+          "NetworkAclId": "acl-00190f3b5f8f3bc4c",
+          "Tags": [],
+          "VpcId": "vpc-0394e4c2f1b661525",
+          "OwnerId": "842676016323"
+        }
+      ],
+      "load_balancers": [],
+      "tgw_attachments": [
+        {
+          "TransitGatewayAttachmentId": "tgw-attach-0d050b51505e89942",
+          "TransitGatewayId": "tgw-0ad54e4ecf4d0309f",
+          "TransitGatewayOwnerId": "590183832485",
+          "ResourceOwnerId": "842676016323",
+          "ResourceType": "vpc",
+          "ResourceId": "vpc-0394e4c2f1b661525",
+          "State": "available",
+          "Association": {
+            "TransitGatewayRouteTableId": "tgw-rtb-01e5a6c1aec0a956c",
+            "State": "associated"
+          },
+          "CreationTime": "2025-02-06T14:43:24+00:00",
+          "Tags": [
+            {
+              "Key": "Accelerator",
+              "Value": "AWSAccelerator"
+            },
+            {
+              "Key": "Name",
+              "Value": "LZA-Medium-2AZ-Ireland-Prod"
+            }
+          ]
+        }
+      ],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    },
+    "eu-central-1": {
+      "vpcs": [],
+      "subnets": [],
+      "route_tables": [],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [],
+      "vpc_endpoints": [],
+      "enis": [],
+      "security_groups": [],
+      "nacls": [],
+      "load_balancers": [],
+      "tgw_attachments": [],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    }
+  },
+  "471112819776": {
+    "us-east-1": {
+      "vpcs": [],
+      "subnets": [],
+      "route_tables": [],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [],
+      "vpc_endpoints": [],
+      "enis": [],
+      "security_groups": [],
+      "nacls": [],
+      "load_balancers": [],
+      "tgw_attachments": [],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    },
+    "eu-west-1": {
+      "vpcs": [],
+      "subnets": [],
+      "route_tables": [],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [],
+      "vpc_endpoints": [],
+      "enis": [],
+      "security_groups": [],
+      "nacls": [],
+      "load_balancers": [],
+      "tgw_attachments": [],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    },
+    "eu-central-1": {
+      "vpcs": [],
+      "subnets": [],
+      "route_tables": [],
+      "internet_gateways": [],
+      "nat_gateways": [],
+      "transit_gateways": [],
+      "vpc_endpoints": [],
+      "enis": [],
+      "security_groups": [],
+      "nacls": [],
+      "load_balancers": [],
+      "tgw_attachments": [],
+      "vpc_peering_connections": [],
+      "endpoint_services": []
+    }
+  }
+}
