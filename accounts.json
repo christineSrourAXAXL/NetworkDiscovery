@@ -1,12 +1,402 @@
 [
   {
+    "account_id": "590183832485",
+    "account_name": "Network-LZA",
+    "sso_profile": "Network-LZA"
+  },  
+  {
+    "account_id":"779639056731",
+    "account_name":"dcp-prod-payer",
+    "sso_profile":"dcp-prod-payer"
+  },
+  {
+    "account_id": "847802486651",
+    "account_name": "LogArchive",
+    "sso_profile": "LogArchive"
+  },
+  {
+    "account_id": "339712873184",
+    "account_name": "Backup",
+    "sso_profile": "Backup"
+  },
+  {
+    "account_id": "011528281014",
+    "account_name": "data-databricks-dev-1",
+    "sso_profile": "data-databricks-dev-1"
+  },
+  {
+    "account_id": "841162712947",
+    "account_name": "data-databricks-network-dev-1",
+    "sso_profile": "data-databricks-network-dev-1"
+  },
+  {
+    "account_id": "703671909932",
+    "account_name": "data-databricks-network-nonprod-1",
+    "sso_profile": "data-databricks-network-nonprod-1"
+  },
+  {
+    "account_id": "340752797553",
+    "account_name": "data-databricksnetwork-prod-1",
+    "sso_profile": "data-databricksnetwork-prod-1"
+  },
+  {
+    "account_id": "867344444047",
+    "account_name": "data-datadomains-dev-1",
+    "sso_profile": "data-datadomains-dev-1"
+  },
+  {
+    "account_id": "061039809269",
+    "account_name": "data-datadomains-prod-1",
+    "sso_profile": "data-datadomains-prod-1"
+  },
+  {
+    "account_id": "816069140703",
+    "account_name": "data-datagovernance-prod-1",
+    "sso_profile": "data-datagovernance-prod-1"
+  },
+  {
+    "account_id": "060795938717",
+    "account_name": "data-geoparser-dev-1",
+    "sso_profile": "data-geoparser-dev-1"
+  },
+  {
+    "account_id": "225989369370",
+    "account_name": "data-geoparser-ppd-1",
+    "sso_profile": "data-geoparser-ppd-1"
+  },
+  {
     "account_id": "842676016323",
-    "role_name": "plt-security-ro",
+    "account_name": "data-geoparser-prod-1",
     "sso_profile": "data-geoparser-prod-1"
   },
   {
+    "account_id": "980921741341",
+    "account_name": "data-geoparser-uat-1",
+    "sso_profile": "data-geoparser-uat-1"
+  },
+  {
+    "account_id": "724772081347",
+    "account_name": "data-governance-dev-1",
+    "sso_profile": "data-governance-dev-1"
+  },
+  {
+    "account_id": "011528280869",
+    "account_name": "dcp-controlplane-dev-1",
+    "sso_profile": "dcp-controlplane-dev-1"
+  },
+  {
+    "account_id": "011528281351",
+    "account_name": "dcp-controlplane-dev-2",
+    "sso_profile": "dcp-controlplane-dev-2"
+  },
+  {
+    "account_id": "588738614395",
+    "account_name": "dcp-controlplane-ppd-1",
+    "sso_profile": "dcp-controlplane-ppd-1"
+  },
+  {
+    "account_id": "024848484552",
+    "account_name": "dcp-controlplane-prod-1",
+    "sso_profile": "dcp-controlplane-prod-1"
+  },
+  {
+    "account_id": "024848484354",
+    "account_name": "dcp-controlplane-uat-1",
+    "sso_profile": "dcp-controlplane-uat-1"
+  },
+  {
+    "account_id": "011528281867",
+    "account_name": "dcp-cyber-dev-1",
+    "sso_profile": "dcp-cyber-dev-1"
+  },
+  {
+    "account_id": "537124964166",
+    "account_name": "dcp-cyber-ppd-1",
+    "sso_profile": "dcp-cyber-ppd-1"
+  },
+  {
+    "account_id": "024848485065",
+    "account_name": "dcp-cyber-prod-1",
+    "sso_profile": "dcp-cyber-prod-1"
+  },
+  {
+    "account_id": "011528281227",
+    "account_name": "dcp-cyber-sbx-1",
+    "sso_profile": "dcp-cyber-sbx-1"
+  },
+  {
+    "account_id": "024848484479",
+    "account_name": "dcp-cyber-uat-1",
+    "sso_profile": "dcp-cyber-uat-1"
+  },
+  {
+    "account_id": "182399696195",
+    "account_name": "dcp-dataplatform-dev-1",
+    "sso_profile": "dcp-dataplatform-dev-1"
+  },
+  {
+    "account_id": "922454075006",
+    "account_name": "dcp-development-shared-dev-1",
+    "sso_profile": "dcp-development-shared-dev-1"
+  },
+  {
+    "account_id": "476114137820",
+    "account_name": "dcp-devops-dev-1",
+    "sso_profile": "dcp-devops-dev-1"
+  },
+  {
+    "account_id": "682033501371",
+    "account_name": "dcp-emailservice-dev-1",
+    "sso_profile": "dcp-emailservice-dev-1"
+  },
+  {
+    "account_id": "869935105980",
+    "account_name": "dcp-emailservice-ppd-1",
+    "sso_profile": "dcp-emailservice-ppd-1"
+  },
+  {
+    "account_id": "515966513270",
+    "account_name": "dcp-emailservice-prod-1",
+    "sso_profile": "dcp-emailservice-prod-1"
+  },
+  {
+    "account_id": "329599657451",
+    "account_name": "dcp-fireprevention-dev-1",
+    "sso_profile": "dcp-fireprevention-dev-1"
+  },
+  {
+    "account_id": "011528280947",
+    "account_name": "dcp-geofootprinter-dev-1",
+    "sso_profile": "dcp-geofootprinter-dev-1"
+  },
+  {
+    "account_id": "108782095673",
+    "account_name": "dcp-geofootprinter-ppd-1",
+    "sso_profile": "dcp-geofootprinter-ppd-1"
+  },
+  {
+    "account_id": "024848484813",
+    "account_name": "dcp-geofootprinter-prod-1",
+    "sso_profile": "dcp-geofootprinter-prod-1"
+  },
+  {
+    "account_id": "011528281402",
+    "account_name": "dcp-geofootprinter-sbx-1",
+    "sso_profile": "dcp-geofootprinter-sbx-1"
+  },
+  {
+    "account_id": "024848484687",
+    "account_name": "dcp-geofootprinter-uat-1",
+    "sso_profile": "dcp-geofootprinter-uat-1"
+  },
+  {
+    "account_id": "887909710038",
+    "account_name": "dcp-geollm-sbx-1",
+    "sso_profile": "dcp-geollm-sbx-1"
+  },
+  {
+    "account_id": "438465161478",
+    "account_name": "dcp-liveevents-sbx-1",
+    "sso_profile": "dcp-liveevents-sbx-1"
+  },
+  {
+    "account_id": "024848484718",
+    "account_name": "dcp-mongodb-dev-1",
+    "sso_profile": "dcp-mongodb-dev-1"
+  },
+  {
+    "account_id": "774305581242",
+    "account_name": "dcp-mongodb-ppd-1",
+    "sso_profile": "dcp-mongodb-ppd-1"
+  },
+  {
+    "account_id": "024848484202",
+    "account_name": "dcp-mongodb-prod-1",
+    "sso_profile": "dcp-mongodb-prod-1"
+  },
+  {
+    "account_id": "060795912004",
+    "account_name": "dcp-monitoring-dev-1",
+    "sso_profile": "dcp-monitoring-dev-1"
+  },
+  {
+    "account_id": "676206933929",
+    "account_name": "dcp-monitoring-nonprod-1",
+    "sso_profile": "dcp-monitoring-nonprod-1"
+  },
+  {
+    "account_id": "897729133708",
+    "account_name": "dcp-monitoring-ppd-1",
+    "sso_profile": "dcp-monitoring-ppd-1"
+  },
+  {
+    "account_id": "140023383892",
+    "account_name": "dcp-monitoring-prod-1",
+    "sso_profile": "dcp-monitoring-prod-1"
+  },
+  {
+    "account_id": "610596007402",
+    "account_name": "dcp-onboardai-poc-dev-1",
+    "sso_profile": "dcp-onboardai-poc-dev-1"
+  },
+  {
+    "account_id": "011528280889",
+    "account_name": "dcp-physicalassets-dev-1",
+    "sso_profile": "dcp-physicalassets-dev-1"
+  },
+  {
+    "account_id": "593793047180",
+    "account_name": "dcp-physicalassets-ppd-1",
+    "sso_profile": "dcp-physicalassets-ppd-1"
+  },
+  {
+    "account_id": "024848484413",
+    "account_name": "dcp-physicalassets-prod-1",
+    "sso_profile": "dcp-physicalassets-prod-1"
+  },
+  {
+    "account_id": "011528281725",
+    "account_name": "dcp-physicalassets-sit-1",
+    "sso_profile": "dcp-physicalassets-sit-1"
+  },
+  {
+    "account_id": "024848484744",
+    "account_name": "dcp-physicalassets-uat-1",
+    "sso_profile": "dcp-physicalassets-uat-1"
+  },
+  {
+    "account_id": "054037143634",
+    "account_name": "dcp-platform-shared-1",
+    "sso_profile": "dcp-platform-shared-1"
+  },
+  {
+    "account_id": "039612846254",
+    "account_name": "dcp-platform-subscriptions-1",
+    "sso_profile": "dcp-platform-subscriptions-1"
+  },
+  {
+    "account_id": "011528281416",
+    "account_name": "dcp-portal-dev-1",
+    "sso_profile": "dcp-portal-dev-1"
+  },
+  {
+    "account_id": "503561438243",
+    "account_name": "dcp-portal-ppd-1",
+    "sso_profile": "dcp-portal-ppd-1"
+  },
+  {
+    "account_id": "024848484417",
+    "account_name": "dcp-portal-prod-1",
+    "sso_profile": "dcp-portal-prod-1"
+  },
+  {
+    "account_id": "011528280649",
+    "account_name": "dcp-portal-sbx-1",
+    "sso_profile": "dcp-portal-sbx-1"
+  },
+  {
+    "account_id": "024848485081",
+    "account_name": "dcp-portal-uat-1",
+    "sso_profile": "dcp-portal-uat-1"
+  },
+  {
+    "account_id": "876166111697",
+    "account_name": "dcp-reportfactory-dev-1",
+    "sso_profile": "dcp-reportfactory-dev-1"
+  },
+  {
+    "account_id": "257394470080",
+    "account_name": "dcp-riskfactordetection-dev-1",
+    "sso_profile": "dcp-riskfactordetection-dev-1"
+  },
+  {
+    "account_id": "509399591126",
+    "account_name": "dcp-riskfactordetection-mlworkbench-dev-1",
+    "sso_profile": "dcp-riskfactordetection-mlworkbench-dev-1"
+  },
+  {
+    "account_id": "216989109583",
+    "account_name": "dcp-riskfactordetection-ppd-1",
+    "sso_profile": "dcp-riskfactordetection-ppd-1"
+  },
+  {
+    "account_id": "651706765804",
+    "account_name": "dcp-riskfactordetection-prod-1",
+    "sso_profile": "dcp-riskfactordetection-prod-1"
+  },
+  {
+    "account_id": "277707111777",
+    "account_name": "dcp-riskfactordetection-uat-1",
+    "sso_profile": "dcp-riskfactordetection-uat-1"
+  },
+  {
+    "account_id": "849358584974",
+    "account_name": "dcp-tex-analytics-1",
+    "sso_profile": "dcp-tex-analytics-1"
+  },
+  {
+    "account_id": "249020672821",
+    "account_name": "dcp-tex-dev-1",
+    "sso_profile": "dcp-tex-dev-1"
+  },
+  {
+    "account_id": "424251395123",
+    "account_name": "dcp-tex-ppd-1",
+    "sso_profile": "dcp-tex-ppd-1"
+  },
+  {
+    "account_id": "184565919014",
+    "account_name": "dcp-tex-prod-1",
+    "sso_profile": "dcp-tex-prod-1"
+  },
+  {
+    "account_id": "172834471629",
+    "account_name": "dcp-tex-qa-1",
+    "sso_profile": "dcp-tex-qa-1"
+  },
+  {
+    "account_id": "847802486651",
+    "account_name": "dcp-tex-tools-1",
+    "sso_profile": "dcp-tex-tools-1"
+  },
+  {
+    "account_id": "437557262980",
+    "account_name": "dcp-tex-uat-1",
+    "sso_profile": "dcp-tex-uat-1"
+  },
+  {
+    "account_id": "533267338674",
+    "account_name": "FinOps",
+    "sso_profile": "FinOps"
+  },
+  {
+    "account_id": "390402535137",
+    "account_name": "partner-ihs-dev-1",
+    "sso_profile": "partner-ihs-dev-1"
+  },
+  {
+    "account_id": "011528281524",
+    "account_name": "partner-kayrros-dev-1",
+    "sso_profile": "partner-kayrros-dev-1"
+  },
+  {
+    "account_id": "054037120428",
+    "account_name": "partner-kayrros-prod-1",
+    "sso_profile": "partner-kayrros-prod-1"
+  },
+  {
+    "account_id": "248189904828",
+    "account_name": "sbx-fdeshaies-sandbox-1",
+    "sso_profile": "sbx-fdeshaies-sandbox-1"
+  },
+  {
+    "account_id": "463701203403",
+    "account_name": "sbx-vdagoury-sandbox-1",
+    "sso_profile": "sbx-vdagoury-sandbox-1"
+  },
+  {
     "account_id": "471112819776",
-    "role_name": "plt-security-ro",
+    "account_name": "Security",
     "sso_profile": "Security"
   }
 ]

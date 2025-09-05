@@ -1,0 +1,1516 @@
+[
+  {
+    "firewall_name": "core-network-firewall",
+    "vpc_id": "vpc-0ef4b5c02a5542e97",
+    "subnet_mappings": [
+      {
+        "subnetid": "subnet-0ded7e656c53a3499",
+        "ipaddresstype": "IPV4"
+      },
+      {
+        "subnetid": "subnet-0d01f9e5196d786b6",
+        "ipaddresstype": "IPV4"
+      }
+    ],
+    "firewall_policy": {
+      "metadata": {
+        "firewallpolicyname": "accelerator-policy-Ireland",
+        "firewallpolicyarn": "arn:aws:network-firewall:eu-west-1:590183832485:firewall-policy/accelerator-policy-Ireland",
+        "firewallpolicyid": "b92ea38d-6c78-4fd0-82aa-8f1f2d15f2e2",
+        "firewallpolicystatus": "ACTIVE",
+        "tags": [
+          {
+            "key": "Accelerator",
+            "value": "AWSAccelerator"
+          },
+          {
+            "key": "Name",
+            "value": "accelerator-policy-Ireland"
+          }
+        ],
+        "consumedstatelessrulecapacity": 0,
+        "consumedstatefulrulecapacity": 10000,
+        "numberofassociations": 1,
+        "encryptionconfiguration": {
+          "keyid": "AWS_OWNED_KMS_KEY",
+          "type": "AWS_OWNED_KMS_KEY"
+        },
+        "lastmodifiedtime": "2024-10-15T14:55:11.129000+02:00"
+      },
+      "document": {
+        "statelessdefaultactions": [
+          "aws:forward_to_sfe"
+        ],
+        "statelessfragmentdefaultactions": [
+          "aws:forward_to_sfe"
+        ],
+        "statefulrulegroupreferences": [
+          {
+            "resourcearn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-ip",
+            "priority": 4
+          },
+          {
+            "resourcearn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-domain",
+            "priority": 5
+          },
+          {
+            "resourcearn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-ip",
+            "priority": 6
+          },
+          {
+            "resourcearn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-domain",
+            "priority": 7
+          },
+          {
+            "resourcearn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/ingress-suricata-rules-ip",
+            "priority": 8
+          }
+        ],
+        "statefuldefaultactions": [
+          "aws:drop_established",
+          "aws:alert_established"
+        ],
+        "statefulengineoptions": {
+          "ruleorder": "STRICT_ORDER"
+        }
+      }
+    },
+    "rule_group_definitions": {
+      "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-ip": {
+        "metadata": {
+          "rulegrouparn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-ip",
+          "rulegroupname": "eastwest-suricata-rules-ip",
+          "rulegroupid": "2ac97707-9761-4798-b8d5-48b49fc4a5de",
+          "type": "STATEFUL",
+          "capacity": 2000,
+          "rulegroupstatus": "ACTIVE",
+          "tags": [
+            {
+              "key": "Tag1",
+              "value": "Value1"
+            },
+            {
+              "key": "local.owner",
+              "value": "network"
+            },
+            {
+              "key": "global.project",
+              "value": "network"
+            },
+            {
+              "key": "local.pii",
+              "value": "false"
+            },
+            {
+              "key": "local.is_regulated",
+              "value": "false"
+            },
+            {
+              "key": "global.app",
+              "value": "firewall"
+            },
+            {
+              "key": "global.env",
+              "value": "production"
+            },
+            {
+              "key": "local.data-residency",
+              "value": "irl"
+            },
+            {
+              "key": "global.dataclass",
+              "value": "confidential"
+            },
+            {
+              "key": "Tag2",
+              "value": "Value2"
+            }
+          ],
+          "consumedcapacity": 37,
+          "numberofassociations": 1,
+          "encryptionconfiguration": {
+            "keyid": "arn:aws:kms:eu-west-1:590183832485:key/72b07ebf-2ff5-49fd-a57f-f8c682ac4d35",
+            "type": "CUSTOMER_KMS"
+          },
+          "lastmodifiedtime": "2025-07-28T10:40:08.079000+02:00"
+        },
+        "definition": {
+          "rulevariables": {
+            "ipsets": {
+              "data_governance_nonprod": {
+                "definition": [
+                  "10.8.32.0/23"
+                ]
+              },
+              "dcp_controlplane_nonprod": {
+                "definition": [
+                  "10.8.10.0/23",
+                  "10.8.22.0/23",
+                  "10.8.14.0/23"
+                ]
+              },
+              "dcp_controlplane_preprod": {
+                "definition": [
+                  "10.4.8.0/23"
+                ]
+              },
+              "dcp_controlplane_prod": {
+                "definition": [
+                  "10.0.4.0/23"
+                ]
+              },
+              "dcp_cyber_nonprod": {
+                "definition": [
+                  "10.8.2.0/23",
+                  "10.8.18.0/23"
+                ]
+              },
+              "dcp_cyber_preprod": {
+                "definition": [
+                  "10.4.4.0/23"
+                ]
+              },
+              "dcp_cyber_prod": {
+                "definition": [
+                  "10.0.2.0/23"
+                ]
+              },
+              "dcp_databricks_nonprod": {
+                "definition": [
+                  "10.8.4.0/23"
+                ]
+              },
+              "dcp_dataplatform_nonprod": {
+                "definition": [
+                  "10.8.36.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_dev": {
+                "definition": [
+                  "10.8.54.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_prod": {
+                "definition": [
+                  "10.0.14.0/23"
+                ]
+              },
+              "dcp_data_datadomains_dev": {
+                "definition": [
+                  "10.8.44.0/23"
+                ]
+              },
+              "dcp_data_datadomains_prod": {
+                "definition": [
+                  "10.0.20.0/23"
+                ]
+              },
+              "dcp_devops_nonprod": {
+                "definition": [
+                  "10.8.34.0/23"
+                ]
+              },
+              "dcp_fireprevention_nonprod": {
+                "definition": [
+                  "10.8.50.0/23"
+                ]
+              },
+              "dcp_geofootprinter_nonprod": {
+                "definition": [
+                  "10.8.20.0/23",
+                  "10.8.16.0/23"
+                ]
+              },
+              "dcp_geofootprinter_preprod": {
+                "definition": [
+                  "10.4.10.0/23"
+                ]
+              },
+              "dcp_geofootprinter_prod": {
+                "definition": [
+                  "10.0.8.0/23"
+                ]
+              },
+              "dcp_mongodb_nonprod": {
+                "definition": [
+                  "10.8.8.0/23"
+                ]
+              },
+              "dcp_monitoring_nonprod": {
+                "definition": [
+                  "10.8.40.0/23",
+                  "10.8.68.0/23"
+                ]
+              },
+              "dcp_monitoring_preprod": {
+                "definition": [
+                  "10.4.18.0/23"
+                ]
+              },
+              "dcp_monitoring_prod": {
+                "definition": [
+                  "10.0.10.0/23"
+                ]
+              },
+              "dcp_network_central_ingress": {
+                "definition": [
+                  "10.240.4.0/22"
+                ]
+              },
+              "dcp_physicalassets_nonprod": {
+                "definition": [
+                  "10.8.0.0/23",
+                  "10.8.6.0/23"
+                ]
+              },
+              "dcp_physicalassets_preprod": {
+                "definition": [
+                  "10.4.2.0/23"
+                ]
+              },
+              "dcp_physicalassets_prod": {
+                "definition": [
+                  "10.0.6.0/23"
+                ]
+              },
+              "dcp_platform_shared": {
+                "definition": [
+                  "10.8.26.0/23"
+                ]
+              },
+              "dcp_portal_nonprod": {
+                "definition": [
+                  "10.8.28.0/23",
+                  "10.8.42.0/23"
+                ]
+              },
+              "dcp_portal_preprod": {
+                "definition": [
+                  "10.4.6.0/23"
+                ]
+              },
+              "dcp_portal_prod": {
+                "definition": [
+                  "10.0.12.0/23"
+                ]
+              },
+              "dcp_reportfactory_nonprod": {
+                "definition": [
+                  "10.8.66.0/23"
+                ]
+              },
+              "dcp_riskfactordetection_nonprod": {
+                "definition": [
+                  "10.8.38.0/23"
+                ]
+              },
+              "dcp_riskfactor_ml_nonprod": {
+                "definition": [
+                  "10.8.60.0/23"
+                ]
+              },
+              "home_net": {
+                "definition": [
+                  "10.0.0.0/8",
+                  "192.168.0.0/16",
+                  "172.16.0.0/12"
+                ]
+              },
+              "nonprod_nets": {
+                "definition": [
+                  "10.40.0.0/14",
+                  "10.8.0.0/14",
+                  "10.24.0.0/14"
+                ]
+              },
+              "partner_ihs_nonprod": {
+                "definition": [
+                  "10.8.30.0/23"
+                ]
+              },
+              "partner_kayrros_nonprod": {
+                "definition": [
+                  "10.8.24.0/23"
+                ]
+              },
+              "preprod_nets": {
+                "definition": [
+                  "10.20.0.0/14",
+                  "10.36.0.0/14",
+                  "10.4.0.0/14"
+                ]
+              },
+              "prod_nets": {
+                "definition": [
+                  "10.32.0.0/14",
+                  "10.0.0.0/14",
+                  "10.16.0.0/14"
+                ]
+              },
+              "sbx_nets": {
+                "definition": [
+                  "10.224.0.0/13",
+                  "10.232.0.0/13"
+                ]
+              }
+            }
+          },
+          "rulessource": {
+            "rulesstring": "#This Logs Absolutley Everything\nalert http $HOME_NET any -> $HOME_NET any (msg:\"East-West HTTP traffic\"; flow:to_server, established; sid:1200001;)\nalert ftp $HOME_NET any -> $HOME_NET any (msg:\"East-West FTP traffic\"; flow:to_server, established; sid:1200002;)\nalert tls $HOME_NET any -> $HOME_NET any (msg:\"East-West TLS traffic\"; flow:to_server, established; sid:1200003;)\nalert smb $HOME_NET any -> $HOME_NET any (msg:\"East-West SMB traffic\"; flow:to_server, established; sid:1200004;)\nalert dns $HOME_NET any -> $HOME_NET any (msg:\"East-West DNS traffic\"; flow:to_server, established; sid:1200005;)\nalert dcerpc $HOME_NET any -> $HOME_NET any (msg:\"East-West DCERPC traffic\"; flow:to_server, established; sid:1200006;)\nalert ssh $HOME_NET any -> $HOME_NET any (msg:\"East-West SSH traffic\"; flow:to_server, established; sid:1200007;)\nalert smtp $HOME_NET any -> $HOME_NET any (msg:\"East-West SMTP traffic\"; flow:to_server, established; sid:1200008;)\nalert imap $HOME_NET any -> $HOME_NET any (msg:\"East-West IMAP traffic\"; flow:to_server, established; sid:1200009;)\nalert nfs $HOME_NET any -> $HOME_NET any (msg:\"East-West NFS traffic\"; flow:to_server, established; sid:1200010;)\nalert ikev2 $HOME_NET any -> $HOME_NET any (msg:\"East-West IKEV2 traffic\"; flow:to_server, established; sid:1200011;)\nalert krb5 $HOME_NET any -> $HOME_NET any (msg:\"East-West KRB5 traffic\"; flow:to_server, established; sid:1200012;)\nalert ntp $HOME_NET any -> $HOME_NET any (msg:\"East-West NTP traffic\"; flow:to_server, established; sid:1200013;)\nalert snmp $HOME_NET any -> $HOME_NET any (msg:\"East-West SNMP traffic\"; flow:to_server, established; sid:1200014;)\nalert tftp $HOME_NET any -> $HOME_NET any (msg:\"East-West TFTP traffic\"; flow:to_server, established; sid:1200015;)\nalert tcp $HOME_NET any -> $HOME_NET any (msg:\"East-West TCP traffic\"; flow:to_server, established; sid:1200016;)\nalert udp $HOME_NET any -> $HOME_NET any (msg:\"East-West UDP traffic\"; flow:to_server, established; sid:1200017;)\nalert ip $HOME_NET any -> $HOME_NET any (msg:\"East-West Any traffic\"; flow:to_server, established; sid:1200018;)\nalert tls $HOME_NET any -> $HOME_NET any (msg:\"East-West TLS JA3 traffic\"; ja3.hash; content:!\"00000000000000000000000000000000\"; flow:to_server, established; sid:1200019;)\n\n# Allow MongoDB communications\nalert tcp $PROD_NETS any -> 10.0.0.0/23 any (msg:\"Allow all prod to mongodb prod\"; sid:1200105;)\npass tcp $PROD_NETS any -> 10.0.0.0/23 any (msg:\"Allow all prod to mongodb prod\"; sid:1000105;)\nalert tcp $NONPROD_NETS any -> 10.8.8.0/23 any (msg:\"Allow all nonprod to mongodb nonprod\"; sid:1200106;)\npass tcp $NONPROD_NETS any -> 10.8.8.0/23 any (msg:\"Allow all nonprod to mongodb nonprod\"; sid:1000106;)\nalert tcp $PREPROD_NETS any -> 10.4.0.0/23 any (msg:\"Allow all preprod to mongodb preprod\"; sid:1200107;)\npass tcp $PREPROD_NETS any -> 10.4.0.0/23 any (msg:\"Allow all preprod to mongodb preprod\"; sid:1000107;)\n\n# Allow Databricks communications\nalert tcp $DCP_DATA_DATADOMAINS_DEV any -> $DCP_DATA_DATABRICKS_NETWORK_DEV any (msg:\"Allow datadomains dev to databricks network dev\"; sid:1200201;)\npass tcp $DCP_DATA_DATADOMAINS_DEV any -> $DCP_DATA_DATABRICKS_NETWORK_DEV any (msg:\"Allow datadomains dev to databricks network dev\"; sid:1000201;)\nalert tcp $DCP_REPORTFACTORY_NONPROD any -> $DCP_DATA_DATABRICKS_NETWORK_DEV any (msg:\"Allow datadomains dev to databricks network PROD\"; sid:1200206;)\npass tcp $DCP_REPORTFACTORY_NONPROD any -> $DCP_DATA_DATABRICKS_NETWORK_DEV any (msg:\"Allow datadomains dev to databricks network PROD\"; sid:1000206;)\nalert tcp $DCP_DATA_DATADOMAINS_PROD any -> $DCP_DATA_DATABRICKS_NETWORK_PROD any (msg:\"Allow datadomains dev to databricks network PROD\"; sid:1200205;)\npass tcp $DCP_DATA_DATADOMAINS_PROD any -> $DCP_DATA_DATABRICKS_NETWORK_PROD any (msg:\"Allow datadomains dev to databricks network PROD\"; sid:1000205;)\n\n# Test for ALB/NLB pattern applied to fireprevention\nalert tcp $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow tcp DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1200202;)\npass tcp $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow tcp DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1000202;)\nalert http $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow http DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1200203;)\npass http $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow http DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1000203;)\nalert tls $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow tls DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1200204;)\npass tls $DCP_NETWORK_CENTRAL_INGRESS any -> $DCP_FIREPREVENTION_NONPROD any (msg:\"Allow tls DCP_NETWORK_CENTRAL_INGRESS to fireprevention dev\"; sid:1000204;)"
+          },
+          "statefulruleoptions": {
+            "ruleorder": "STRICT_ORDER"
+          }
+        }
+      },
+      "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-domain": {
+        "metadata": {
+          "rulegrouparn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/eastwest-suricata-rules-domain",
+          "rulegroupname": "eastwest-suricata-rules-domain",
+          "rulegroupid": "011fbe2b-9f4c-49c5-a06a-539111336721",
+          "type": "STATEFUL",
+          "capacity": 2000,
+          "rulegroupstatus": "ACTIVE",
+          "tags": [
+            {
+              "key": "Tag1",
+              "value": "Value1"
+            },
+            {
+              "key": "local.owner",
+              "value": "network"
+            },
+            {
+              "key": "global.project",
+              "value": "network"
+            },
+            {
+              "key": "local.pii",
+              "value": "false"
+            },
+            {
+              "key": "local.is_regulated",
+              "value": "false"
+            },
+            {
+              "key": "global.app",
+              "value": "firewall"
+            },
+            {
+              "key": "global.env",
+              "value": "production"
+            },
+            {
+              "key": "local.data-residency",
+              "value": "irl"
+            },
+            {
+              "key": "global.dataclass",
+              "value": "confidential"
+            },
+            {
+              "key": "Tag2",
+              "value": "Value2"
+            }
+          ],
+          "consumedcapacity": 19,
+          "numberofassociations": 1,
+          "encryptionconfiguration": {
+            "keyid": "arn:aws:kms:eu-west-1:590183832485:key/72b07ebf-2ff5-49fd-a57f-f8c682ac4d35",
+            "type": "CUSTOMER_KMS"
+          },
+          "lastmodifiedtime": "2025-07-28T10:40:08.027000+02:00"
+        },
+        "definition": {
+          "rulevariables": {
+            "ipsets": {
+              "data_governance_nonprod": {
+                "definition": [
+                  "10.8.32.0/23"
+                ]
+              },
+              "dcp_controlplane_nonprod": {
+                "definition": [
+                  "10.8.10.0/23",
+                  "10.8.22.0/23",
+                  "10.8.14.0/23"
+                ]
+              },
+              "dcp_controlplane_preprod": {
+                "definition": [
+                  "10.4.8.0/23"
+                ]
+              },
+              "dcp_controlplane_prod": {
+                "definition": [
+                  "10.0.4.0/23"
+                ]
+              },
+              "dcp_cyber_nonprod": {
+                "definition": [
+                  "10.8.2.0/23",
+                  "10.8.18.0/23"
+                ]
+              },
+              "dcp_cyber_preprod": {
+                "definition": [
+                  "10.4.4.0/23"
+                ]
+              },
+              "dcp_cyber_prod": {
+                "definition": [
+                  "10.0.2.0/23"
+                ]
+              },
+              "dcp_databricks_nonprod": {
+                "definition": [
+                  "10.8.4.0/23"
+                ]
+              },
+              "dcp_dataplatform_nonprod": {
+                "definition": [
+                  "10.8.36.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_dev": {
+                "definition": [
+                  "10.8.54.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_prod": {
+                "definition": [
+                  "10.0.14.0/23"
+                ]
+              },
+              "dcp_data_datadomains_dev": {
+                "definition": [
+                  "10.8.44.0/23"
+                ]
+              },
+              "dcp_data_datadomains_prod": {
+                "definition": [
+                  "10.0.20.0/23"
+                ]
+              },
+              "dcp_devops_nonprod": {
+                "definition": [
+                  "10.8.34.0/23"
+                ]
+              },
+              "dcp_fireprevention_nonprod": {
+                "definition": [
+                  "10.8.50.0/23"
+                ]
+              },
+              "dcp_geofootprinter_nonprod": {
+                "definition": [
+                  "10.8.20.0/23",
+                  "10.8.16.0/23"
+                ]
+              },
+              "dcp_geofootprinter_preprod": {
+                "definition": [
+                  "10.4.10.0/23"
+                ]
+              },
+              "dcp_geofootprinter_prod": {
+                "definition": [
+                  "10.0.8.0/23"
+                ]
+              },
+              "dcp_mongodb_nonprod": {
+                "definition": [
+                  "10.8.8.0/23"
+                ]
+              },
+              "dcp_monitoring_nonprod": {
+                "definition": [
+                  "10.8.40.0/23",
+                  "10.8.68.0/23"
+                ]
+              },
+              "dcp_monitoring_preprod": {
+                "definition": [
+                  "10.4.18.0/23"
+                ]
+              },
+              "dcp_monitoring_prod": {
+                "definition": [
+                  "10.0.10.0/23"
+                ]
+              },
+              "dcp_network_central_ingress": {
+                "definition": [
+                  "10.240.4.0/22"
+                ]
+              },
+              "dcp_physicalassets_nonprod": {
+                "definition": [
+                  "10.8.0.0/23",
+                  "10.8.6.0/23"
+                ]
+              },
+              "dcp_physicalassets_preprod": {
+                "definition": [
+                  "10.4.2.0/23"
+                ]
+              },
+              "dcp_physicalassets_prod": {
+                "definition": [
+                  "10.0.6.0/23"
+                ]
+              },
+              "dcp_platform_shared": {
+                "definition": [
+                  "10.8.26.0/23"
+                ]
+              },
+              "dcp_portal_nonprod": {
+                "definition": [
+                  "10.8.28.0/23",
+                  "10.8.42.0/23"
+                ]
+              },
+              "dcp_portal_preprod": {
+                "definition": [
+                  "10.4.6.0/23"
+                ]
+              },
+              "dcp_portal_prod": {
+                "definition": [
+                  "10.0.12.0/23"
+                ]
+              },
+              "dcp_reportfactory_nonprod": {
+                "definition": [
+                  "10.8.66.0/23"
+                ]
+              },
+              "dcp_riskfactordetection_nonprod": {
+                "definition": [
+                  "10.8.38.0/23"
+                ]
+              },
+              "dcp_riskfactor_ml_nonprod": {
+                "definition": [
+                  "10.8.60.0/23"
+                ]
+              },
+              "home_net": {
+                "definition": [
+                  "10.0.0.0/8",
+                  "192.168.0.0/16",
+                  "172.16.0.0/12"
+                ]
+              },
+              "nonprod_nets": {
+                "definition": [
+                  "10.40.0.0/14",
+                  "10.8.0.0/14",
+                  "10.24.0.0/14"
+                ]
+              },
+              "partner_ihs_nonprod": {
+                "definition": [
+                  "10.8.30.0/23"
+                ]
+              },
+              "partner_kayrros_nonprod": {
+                "definition": [
+                  "10.8.24.0/23"
+                ]
+              },
+              "preprod_nets": {
+                "definition": [
+                  "10.20.0.0/14",
+                  "10.36.0.0/14",
+                  "10.4.0.0/14"
+                ]
+              },
+              "prod_nets": {
+                "definition": [
+                  "10.32.0.0/14",
+                  "10.0.0.0/14",
+                  "10.16.0.0/14"
+                ]
+              },
+              "sbx_nets": {
+                "definition": [
+                  "10.224.0.0/13",
+                  "10.232.0.0/13"
+                ]
+              }
+            }
+          },
+          "rulessource": {
+            "rulesstring": "alert http $HOME_NET any -> $HOME_NET any (msg:\"East-West HTTP traffic\"; flow:to_server, established; sid:2200001;)\nalert ftp $HOME_NET any -> $HOME_NET any (msg:\"East-West FTP traffic\"; flow:to_server, established; sid:2200002;)\nalert tls $HOME_NET any -> $HOME_NET any (msg:\"East-West TLS traffic\"; flow:to_server, established; sid:2200003;)\nalert smb $HOME_NET any -> $HOME_NET any (msg:\"East-West SMB traffic\"; flow:to_server, established; sid:2200004;)\nalert dns $HOME_NET any -> $HOME_NET any (msg:\"East-West DNS traffic\"; flow:to_server, established; sid:2200005;)\nalert dcerpc $HOME_NET any -> $HOME_NET any (msg:\"East-West DCERPC traffic\"; flow:to_server, established; sid:2200006;)\nalert ssh $HOME_NET any -> $HOME_NET any (msg:\"East-West SSH traffic\"; flow:to_server, established; sid:2200007;)\nalert smtp $HOME_NET any -> $HOME_NET any (msg:\"East-West SMTP traffic\"; flow:to_server, established; sid:2200008;)\nalert imap $HOME_NET any -> $HOME_NET any (msg:\"East-West IMAP traffic\"; flow:to_server, established; sid:2200009;)\nalert nfs $HOME_NET any -> $HOME_NET any (msg:\"East-West NFS traffic\"; flow:to_server, established; sid:2200010;)\nalert ikev2 $HOME_NET any -> $HOME_NET any (msg:\"East-West IKEV2 traffic\"; flow:to_server, established; sid:2200011;)\nalert krb5 $HOME_NET any -> $HOME_NET any (msg:\"East-West KRB5 traffic\"; flow:to_server, established; sid:2200012;)\nalert ntp $HOME_NET any -> $HOME_NET any (msg:\"East-West NTP traffic\"; flow:to_server, established; sid:2200013;)\nalert snmp $HOME_NET any -> $HOME_NET any (msg:\"East-West SNMP traffic\"; flow:to_server, established; sid:2200014;)\nalert tftp $HOME_NET any -> $HOME_NET any (msg:\"East-West TFTP traffic\"; flow:to_server, established; sid:2200015;)\nalert tcp $HOME_NET any -> $HOME_NET any (msg:\"East-West TCP traffic\"; flow:to_server, established; sid:2200016;)\nalert udp $HOME_NET any -> $HOME_NET any (msg:\"East-West UDP traffic\"; flow:to_server, established; sid:2200017;)\nalert ip $HOME_NET any -> $HOME_NET any (msg:\"East-West Any traffic\"; flow:to_server, established; sid:2200018;)\nalert tls $HOME_NET any -> $HOME_NET any (msg:\"East-West TLS JA3 traffic\"; ja3.hash; content:!\"00000000000000000000000000000000\"; flow:to_server, established; sid:2200019;)\n"
+          },
+          "statefulruleoptions": {
+            "ruleorder": "STRICT_ORDER"
+          }
+        }
+      },
+      "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-ip": {
+        "metadata": {
+          "rulegrouparn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-ip",
+          "rulegroupname": "egress-suricata-rules-ip",
+          "rulegroupid": "6246f037-6ad0-4b7d-912b-336aab6f4eed",
+          "type": "STATEFUL",
+          "capacity": 2000,
+          "rulegroupstatus": "ACTIVE",
+          "tags": [
+            {
+              "key": "Tag1",
+              "value": "Value1"
+            },
+            {
+              "key": "local.owner",
+              "value": "network"
+            },
+            {
+              "key": "global.project",
+              "value": "network"
+            },
+            {
+              "key": "local.pii",
+              "value": "false"
+            },
+            {
+              "key": "local.is_regulated",
+              "value": "false"
+            },
+            {
+              "key": "global.app",
+              "value": "firewall"
+            },
+            {
+              "key": "global.env",
+              "value": "production"
+            },
+            {
+              "key": "local.data-residency",
+              "value": "irl"
+            },
+            {
+              "key": "global.dataclass",
+              "value": "confidential"
+            },
+            {
+              "key": "Tag2",
+              "value": "Value2"
+            }
+          ],
+          "consumedcapacity": 24,
+          "numberofassociations": 1,
+          "encryptionconfiguration": {
+            "keyid": "arn:aws:kms:eu-west-1:590183832485:key/72b07ebf-2ff5-49fd-a57f-f8c682ac4d35",
+            "type": "CUSTOMER_KMS"
+          },
+          "lastmodifiedtime": "2025-07-28T10:40:08.095000+02:00"
+        },
+        "definition": {
+          "rulevariables": {
+            "ipsets": {
+              "data_governance_nonprod": {
+                "definition": [
+                  "10.8.32.0/23"
+                ]
+              },
+              "dcp_controlplane_nonprod": {
+                "definition": [
+                  "10.8.10.0/23",
+                  "10.8.22.0/23",
+                  "10.8.14.0/23"
+                ]
+              },
+              "dcp_controlplane_preprod": {
+                "definition": [
+                  "10.4.8.0/23"
+                ]
+              },
+              "dcp_controlplane_prod": {
+                "definition": [
+                  "10.0.4.0/23"
+                ]
+              },
+              "dcp_cyber_nonprod": {
+                "definition": [
+                  "10.8.2.0/23",
+                  "10.8.18.0/23"
+                ]
+              },
+              "dcp_cyber_preprod": {
+                "definition": [
+                  "10.4.4.0/23"
+                ]
+              },
+              "dcp_cyber_prod": {
+                "definition": [
+                  "10.0.2.0/23"
+                ]
+              },
+              "dcp_databricks_nonprod": {
+                "definition": [
+                  "10.8.4.0/23"
+                ]
+              },
+              "dcp_dataplatform_nonprod": {
+                "definition": [
+                  "10.8.36.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_dev": {
+                "definition": [
+                  "10.8.54.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_prod": {
+                "definition": [
+                  "10.0.14.0/23"
+                ]
+              },
+              "dcp_data_datadomains_dev": {
+                "definition": [
+                  "10.8.44.0/23"
+                ]
+              },
+              "dcp_data_datadomains_prod": {
+                "definition": [
+                  "10.0.20.0/23"
+                ]
+              },
+              "dcp_devops_nonprod": {
+                "definition": [
+                  "10.8.34.0/23"
+                ]
+              },
+              "dcp_fireprevention_nonprod": {
+                "definition": [
+                  "10.8.50.0/23"
+                ]
+              },
+              "dcp_geofootprinter_nonprod": {
+                "definition": [
+                  "10.8.20.0/23",
+                  "10.8.16.0/23"
+                ]
+              },
+              "dcp_geofootprinter_preprod": {
+                "definition": [
+                  "10.4.10.0/23"
+                ]
+              },
+              "dcp_geofootprinter_prod": {
+                "definition": [
+                  "10.0.8.0/23"
+                ]
+              },
+              "dcp_mongodb_nonprod": {
+                "definition": [
+                  "10.8.8.0/23"
+                ]
+              },
+              "dcp_monitoring_nonprod": {
+                "definition": [
+                  "10.8.40.0/23",
+                  "10.8.68.0/23"
+                ]
+              },
+              "dcp_monitoring_preprod": {
+                "definition": [
+                  "10.4.18.0/23"
+                ]
+              },
+              "dcp_monitoring_prod": {
+                "definition": [
+                  "10.0.10.0/23"
+                ]
+              },
+              "dcp_network_central_ingress": {
+                "definition": [
+                  "10.240.4.0/22"
+                ]
+              },
+              "dcp_physicalassets_nonprod": {
+                "definition": [
+                  "10.8.0.0/23",
+                  "10.8.6.0/23"
+                ]
+              },
+              "dcp_physicalassets_preprod": {
+                "definition": [
+                  "10.4.2.0/23"
+                ]
+              },
+              "dcp_physicalassets_prod": {
+                "definition": [
+                  "10.0.6.0/23"
+                ]
+              },
+              "dcp_platform_shared": {
+                "definition": [
+                  "10.8.26.0/23"
+                ]
+              },
+              "dcp_portal_nonprod": {
+                "definition": [
+                  "10.8.28.0/23",
+                  "10.8.42.0/23"
+                ]
+              },
+              "dcp_portal_preprod": {
+                "definition": [
+                  "10.4.6.0/23"
+                ]
+              },
+              "dcp_portal_prod": {
+                "definition": [
+                  "10.0.12.0/23"
+                ]
+              },
+              "dcp_reportfactory_nonprod": {
+                "definition": [
+                  "10.8.66.0/23"
+                ]
+              },
+              "dcp_riskfactordetection_nonprod": {
+                "definition": [
+                  "10.8.38.0/23"
+                ]
+              },
+              "dcp_riskfactor_ml_nonprod": {
+                "definition": [
+                  "10.8.60.0/23"
+                ]
+              },
+              "home_net": {
+                "definition": [
+                  "10.0.0.0/8",
+                  "192.168.0.0/16",
+                  "172.16.0.0/12"
+                ]
+              },
+              "nonprod_nets": {
+                "definition": [
+                  "10.40.0.0/14",
+                  "10.8.0.0/14",
+                  "10.24.0.0/14"
+                ]
+              },
+              "partner_ihs_nonprod": {
+                "definition": [
+                  "10.8.30.0/23"
+                ]
+              },
+              "partner_kayrros_nonprod": {
+                "definition": [
+                  "10.8.24.0/23"
+                ]
+              },
+              "preprod_nets": {
+                "definition": [
+                  "10.20.0.0/14",
+                  "10.36.0.0/14",
+                  "10.4.0.0/14"
+                ]
+              },
+              "prod_nets": {
+                "definition": [
+                  "10.32.0.0/14",
+                  "10.0.0.0/14",
+                  "10.16.0.0/14"
+                ]
+              },
+              "sbx_nets": {
+                "definition": [
+                  "10.224.0.0/13",
+                  "10.232.0.0/13"
+                ]
+              }
+            }
+          },
+          "rulessource": {
+            "rulesstring": "#This Logs Absolutley Everything\nalert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress HTTP traffic\"; flow:to_server, established; sid:3200001;)\nalert ftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress FTP traffic\"; flow:to_server, established; sid:3200002;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress TLS traffic\"; flow:to_server, established; sid:3200003;)\nalert smb $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress SMB traffic\"; flow:to_server, established; sid:3200004;)\nalert dns $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress DNS traffic\"; flow:to_server, established; sid:3200005;)\nalert dcerpc $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress DCERPC traffic\"; flow:to_server, established; sid:3200006;)\nalert ssh $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress SSH traffic\"; flow:to_server, established; sid:3200007;)\nalert smtp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress SMTP traffic\"; flow:to_server, established; sid:3200008;)\nalert imap $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress IMAP traffic\"; flow:to_server, established; sid:3200009;)\nalert nfs $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress NFS traffic\"; flow:to_server, established; sid:3200010;)\nalert ikev2 $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress IKEV2 traffic\"; flow:to_server, established; sid:3200011;)\nalert krb5 $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress KRB5 traffic\"; flow:to_server, established; sid:3200012;)\nalert ntp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress NTP traffic\"; flow:to_server, established; sid:3200013;)\nalert snmp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress SNMP traffic\"; flow:to_server, established; sid:3200014;)\nalert tftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress TFTP traffic\"; flow:to_server, established; sid:3200015;)\nalert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress TCP traffic\"; flow:to_server, established; sid:3200016;)\nalert udp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress UDP traffic\"; flow:to_server, established; sid:3200017;)\nalert ip $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress Any traffic\"; flow:to_server, established; sid:3200018;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (msg:\"Egress TLS JA3 traffic\"; ja3.hash; content:!\"00000000000000000000000000000000\"; flow:to_server, established; sid:3200019;)\n\n\npass ntp $HOME_NET any -> $EXTERNAL_NET 123 (flow:to_server; msg:\"pass rules do not alert/log\"; sid:3000100;)\npass icmp $HOME_NET any -> $EXTERNAL_NET any (msg:\"pass rules do not alert/log\"; sid:3000101;)\n\n# Only allow short list of egress ports, and block all the rest\ndrop ip $HOME_NET any -> $EXTERNAL_NET ![123,80,443] (msg:\"Disallowed Egress Port\"; sid:3000113;)\n\n# Unrestricted Internet access for production account\n#pass tls 10.0.6.0/23 any -> $EXTERNAL_NET any (msg:\"Allow dcp-physicalassets-prod-1 to internet\"; sid:3000103;)\n#pass tls 10.0.4.0/23 any -> $EXTERNAL_NET any (msg:\"Allow dcp-controlplane-prod-1 to internet\"; sid:3000104;)\n#pass tls 10.0.8.0/23 any -> $EXTERNAL_NET any (msg:\"Allow dcp-geofootprinter-prod-1 to internet\"; sid:3000107;)\n#pass tls 10.0.2.0/23 any -> $EXTERNAL_NET any (msg:\"Allow dcp-cyber-prod-1 to internet\"; sid:3000109;)\n#pass tls 10.0.10.0/23 any -> $EXTERNAL_NET any (msg:\"Allow dcp-monitoring-prod-1 to internet\"; sid:3000110;)\n\n# Only allow short list of egress ports, and block all the rest\n#alert tls 10.0.0.0/14 any -> $EXTERNAL_NET any (msg:\"Allow internet on PROD network\"; sid:3200102;)\n#pass tls 10.8.0.0/14 any -> $EXTERNAL_NET any (msg:\"Allow internet on NONPROD networks\"; sid:3000102;)\n\n# Allow 3 Way Handshake required to allow access to whitelisted external domains\npass tcp $HOME_NET any -> $EXTERNAL_NET any (flow:not_established, to_server; msg:\"pass rules do not alert/log\"; sid:3000114;)\npass tcp $EXTERNAL_NET any -> $HOME_NET any (flow:not_established, to_client; msg:\"pass rules do not alert/log\"; sid:3000115;)\n\n# allow ssh for git. to be discussed with AXA security team\n# pass tcp $NONPROD_NETS any -> $EXTERNAL_NET 22 (flow:to_server; msg:\"Temporarily allow all ssh outgoing traffic from nonprod\"; sid:3000108;)\n\n\n"
+          },
+          "statefulruleoptions": {
+            "ruleorder": "STRICT_ORDER"
+          }
+        }
+      },
+      "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-domain": {
+        "metadata": {
+          "rulegrouparn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/egress-suricata-rules-domain",
+          "rulegroupname": "egress-suricata-rules-domain",
+          "rulegroupid": "b4b8bf79-59c9-47de-91e8-051cb095c0bc",
+          "type": "STATEFUL",
+          "capacity": 2000,
+          "rulegroupstatus": "ACTIVE",
+          "tags": [
+            {
+              "key": "Tag1",
+              "value": "Value1"
+            },
+            {
+              "key": "local.owner",
+              "value": "network"
+            },
+            {
+              "key": "global.project",
+              "value": "network"
+            },
+            {
+              "key": "local.pii",
+              "value": "false"
+            },
+            {
+              "key": "local.is_regulated",
+              "value": "false"
+            },
+            {
+              "key": "global.app",
+              "value": "firewall"
+            },
+            {
+              "key": "global.env",
+              "value": "production"
+            },
+            {
+              "key": "local.data-residency",
+              "value": "irl"
+            },
+            {
+              "key": "global.dataclass",
+              "value": "confidential"
+            },
+            {
+              "key": "Tag2",
+              "value": "Value2"
+            }
+          ],
+          "consumedcapacity": 259,
+          "numberofassociations": 1,
+          "encryptionconfiguration": {
+            "keyid": "arn:aws:kms:eu-west-1:590183832485:key/72b07ebf-2ff5-49fd-a57f-f8c682ac4d35",
+            "type": "CUSTOMER_KMS"
+          },
+          "lastmodifiedtime": "2025-07-31T14:10:36.207000+02:00"
+        },
+        "definition": {
+          "rulevariables": {
+            "ipsets": {
+              "data_governance_nonprod": {
+                "definition": [
+                  "10.8.32.0/23"
+                ]
+              },
+              "dcp_controlplane_nonprod": {
+                "definition": [
+                  "10.8.10.0/23",
+                  "10.8.22.0/23",
+                  "10.8.14.0/23"
+                ]
+              },
+              "dcp_controlplane_preprod": {
+                "definition": [
+                  "10.4.8.0/23"
+                ]
+              },
+              "dcp_controlplane_prod": {
+                "definition": [
+                  "10.0.4.0/23"
+                ]
+              },
+              "dcp_cyber_nonprod": {
+                "definition": [
+                  "10.8.2.0/23",
+                  "10.8.18.0/23"
+                ]
+              },
+              "dcp_cyber_preprod": {
+                "definition": [
+                  "10.4.4.0/23"
+                ]
+              },
+              "dcp_cyber_prod": {
+                "definition": [
+                  "10.0.2.0/23"
+                ]
+              },
+              "dcp_databricks_nonprod": {
+                "definition": [
+                  "10.8.4.0/23"
+                ]
+              },
+              "dcp_dataplatform_nonprod": {
+                "definition": [
+                  "10.8.36.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_dev": {
+                "definition": [
+                  "10.8.54.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_prod": {
+                "definition": [
+                  "10.0.14.0/23"
+                ]
+              },
+              "dcp_data_datadomains_dev": {
+                "definition": [
+                  "10.8.44.0/23"
+                ]
+              },
+              "dcp_data_datadomains_prod": {
+                "definition": [
+                  "10.0.20.0/23"
+                ]
+              },
+              "dcp_devops_nonprod": {
+                "definition": [
+                  "10.8.34.0/23"
+                ]
+              },
+              "dcp_fireprevention_nonprod": {
+                "definition": [
+                  "10.8.50.0/23"
+                ]
+              },
+              "dcp_geofootprinter_nonprod": {
+                "definition": [
+                  "10.8.20.0/23",
+                  "10.8.16.0/23"
+                ]
+              },
+              "dcp_geofootprinter_preprod": {
+                "definition": [
+                  "10.4.10.0/23"
+                ]
+              },
+              "dcp_geofootprinter_prod": {
+                "definition": [
+                  "10.0.8.0/23"
+                ]
+              },
+              "dcp_mongodb_nonprod": {
+                "definition": [
+                  "10.8.8.0/23"
+                ]
+              },
+              "dcp_monitoring_nonprod": {
+                "definition": [
+                  "10.8.40.0/23",
+                  "10.8.68.0/23"
+                ]
+              },
+              "dcp_monitoring_preprod": {
+                "definition": [
+                  "10.4.18.0/23"
+                ]
+              },
+              "dcp_monitoring_prod": {
+                "definition": [
+                  "10.0.10.0/23"
+                ]
+              },
+              "dcp_network_central_ingress": {
+                "definition": [
+                  "10.240.4.0/22"
+                ]
+              },
+              "dcp_physicalassets_nonprod": {
+                "definition": [
+                  "10.8.0.0/23",
+                  "10.8.6.0/23"
+                ]
+              },
+              "dcp_physicalassets_preprod": {
+                "definition": [
+                  "10.4.2.0/23"
+                ]
+              },
+              "dcp_physicalassets_prod": {
+                "definition": [
+                  "10.0.6.0/23"
+                ]
+              },
+              "dcp_platform_shared": {
+                "definition": [
+                  "10.8.26.0/23"
+                ]
+              },
+              "dcp_portal_nonprod": {
+                "definition": [
+                  "10.8.28.0/23",
+                  "10.8.42.0/23"
+                ]
+              },
+              "dcp_portal_preprod": {
+                "definition": [
+                  "10.4.6.0/23"
+                ]
+              },
+              "dcp_portal_prod": {
+                "definition": [
+                  "10.0.12.0/23"
+                ]
+              },
+              "dcp_reportfactory_nonprod": {
+                "definition": [
+                  "10.8.66.0/23"
+                ]
+              },
+              "dcp_riskfactordetection_nonprod": {
+                "definition": [
+                  "10.8.38.0/23"
+                ]
+              },
+              "dcp_riskfactor_ml_nonprod": {
+                "definition": [
+                  "10.8.60.0/23"
+                ]
+              },
+              "home_net": {
+                "definition": [
+                  "10.0.0.0/8",
+                  "192.168.0.0/16",
+                  "172.16.0.0/12"
+                ]
+              },
+              "nonprod_nets": {
+                "definition": [
+                  "10.40.0.0/14",
+                  "10.8.0.0/14",
+                  "10.24.0.0/14"
+                ]
+              },
+              "partner_ihs_nonprod": {
+                "definition": [
+                  "10.8.30.0/23"
+                ]
+              },
+              "partner_kayrros_nonprod": {
+                "definition": [
+                  "10.8.24.0/23"
+                ]
+              },
+              "preprod_nets": {
+                "definition": [
+                  "10.20.0.0/14",
+                  "10.36.0.0/14",
+                  "10.4.0.0/14"
+                ]
+              },
+              "prod_nets": {
+                "definition": [
+                  "10.32.0.0/14",
+                  "10.0.0.0/14",
+                  "10.16.0.0/14"
+                ]
+              },
+              "sbx_nets": {
+                "definition": [
+                  "10.224.0.0/13",
+                  "10.232.0.0/13"
+                ]
+              }
+            }
+          },
+          "rulessource": {
+            "rulesstring": "#This Logs Absolutley Everything\nalert http $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West HTTP traffic\"; flow:to_server, established; sid:4200001;)\nalert ftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West FTP traffic\"; flow:to_server, established; sid:4200002;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West TLS traffic\"; flow:to_server, established; sid:4200003;)\nalert smb $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West SMB traffic\"; flow:to_server, established; sid:4200004;)\nalert dns $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West DNS traffic\"; flow:to_server, established; sid:4200005;)\nalert dcerpc $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West DCERPC traffic\"; flow:to_server, established; sid:4200006;)\nalert ssh $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West SSH traffic\"; flow:to_server, established; sid:4200007;)\nalert smtp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West SMTP traffic\"; flow:to_server, established; sid:4200008;)\nalert imap $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West IMAP traffic\"; flow:to_server, established; sid:4200009;)\nalert nfs $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West NFS traffic\"; flow:to_server, established; sid:4200010;)\nalert ikev2 $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West IKEV2 traffic\"; flow:to_server, established; sid:4200011;)\nalert krb5 $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West KRB5 traffic\"; flow:to_server, established; sid:4200012;)\nalert ntp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West NTP traffic\"; flow:to_server, established; sid:4200013;)\nalert snmp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West SNMP traffic\"; flow:to_server, established; sid:4200014;)\nalert tftp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West TFTP traffic\"; flow:to_server, established; sid:4200015;)\nalert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West TCP traffic\"; flow:to_server, established; sid:4200016;)\nalert udp $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West UDP traffic\"; flow:to_server, established; sid:4200017;)\nalert ip $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West Any traffic\"; flow:to_server, established; sid:4200018;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (msg:\"East-West TLS JA3 traffic\"; ja3.hash; content:!\"00000000000000000000000000000000\"; flow:to_server, established; sid:4200019;)\n\n\n# Allow-list of FQDNs to silently allow\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"checkip.amazonaws.com\"; startswith; nocase; endswith; flow:to_server; sid:4000030;)\npass http $HOME_NET any -> $EXTERNAL_NET any (http.host; content:\"checkip.amazonaws.com\"; startswith; endswith; flow:to_server; sid:4000031;)\n\n# Silently (do not log) allow AWS public service endpoints that we have not setup VPC endpoints for yet\n# VPC endpoints are highly encouraged. They reduce NFW data processing costs and allow for additional security features like VPC endpoint policies.\n#pass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"ec2messages.\"; startswith; nocase; content:\".amazonaws.com\"; endswith; nocase; flow:to_server; sid:40231181;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; dotprefix; content:\".amazonaws.com\"; endswith; nocase; flow:to_server; sid:4000037;)\n\n\n# Allow-List FQDNs, but still alert on them\n#alert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"www.example.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000033\"; sid:4200033;)\n#pass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"www.example.com\"; startswith; nocase; endswith; flow:to_server; msg:\"pass rules do not alert/log\"; sid:4000033;)\n# CI/CD related domains, required by pipelines (build and deploy, including PROD)\n# /!\\ only add domains that should be accessed by all accounts\n# /!\\ double check any removal as it can breaks all the pipelines\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000034\"; sid:4200034;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://github.com\"; sid:4000034;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"api.github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000035\"; sid:4200035;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"api.github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.github.com\"; sid:4000035;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"registry.terraform.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000036\"; sid:4200036;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"registry.terraform.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry.terraform.io\"; sid:4000036;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"releases.hashicorp.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000038\"; sid:4200038;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"releases.hashicorp.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry.terraform.io\"; sid:4000038;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.amazonlinux.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.amazonlinux.com\"; sid:4000039;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"public.ecr.aws\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://public.ecr.aws\"; sid:4000120;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"objects.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://objects.githubusercontent.com required by some tf providers\"; sid:4000124;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"api0.prismacloud.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api0.prismacloud.io (checkov)\"; sid:4000086;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"registry.opentofu.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000092\"; sid:42000091;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"registry.opentofu.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry.opentofu.org\"; sid:4000092;)\n\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"codeload.github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000222\"; sid:4000221;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"codeload.github.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to codeload.github.com \"; sid:4000222;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"release-assets.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000265\"; sid:4200265;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"release-assets.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://release-assets.githubusercontent.com required by some tofu providers\"; sid:4000265;)\n\n# Datadog\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"lambda-http-intake.logs.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000197\"; sid:4000196;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"lambda-http-intake.logs.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://lambda-http-intake.logs.datadoghq.eu\"; sid:4000197;)\nalert tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"webhook-intake.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Alert Rule for SID 4000199\"; sid:4000198;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"webhook-intake.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; sid:4000199;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"api.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.datadoghq.eu\"; sid:4000298;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"agent-http-intake.logs.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://agent-http-intake.logs.datadoghq.eu\"; sid:4000299;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"agent-intake.logs.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://agent-intake.logs.datadoghq.eu\"; sid:4000300;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"process.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://process.datadoghq.eu\"; sid:4000301;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"orchestrator.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://orchestrator.datadog.eu\"; sid:4000302;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"config.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://config.agent.datadoghq.eu\"; sid:4000303;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"trace.agent.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://trace.agent.datadoghq.eu\"; sid:4000304;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"instrumentation-telemetry-intake.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://instrumentation-telemetry-intake.datadoghq.eu\"; sid:4000307;)\npass tls $HOME_NET any -> $EXTERNAL_NET any (tls.sni; content:\"7-66-1-app.agent.datadoghq.eu\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://agent.datadoghq.eu\"; sid:4000308;)\n\n#######\n# PROD\n#######\n\n# Required for silva integration on monitoring-prod-1\npass tls $DCP_MONITORING_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.se.axa-go.axa.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.se.axa-go.axa.com - silva url\"; sid:4000040;)\npass tls $DCP_MONITORING_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"onelogin.axa.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://onelogin.axa.com - axa authentication\"; sid:4000041;)\n\n\n# Required for cyber on cyber-prod-1\npass tls $DCP_CYBER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.securityscorecard.io\"; sid:4000042;)\npass tls $DCP_CYBER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.digitalcommercialplatform.axa\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000043;)\npass tls $DCP_CYBER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"platform-api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://platform-api.securityscorecard.io\"; sid:4000044;)\npass tls $DCP_CYBER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api-sraxa.boardofcyber.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api-sraxa.boardofcyber.io\"; sid:4000053;)\npass tls $DCP_CYBER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.kamae.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.kamae.io\"; sid:4000223;)\n\n\n\n# Required for location services on geofootprinter-prod-1\npass tls $DCP_GEOFOOTPRINTER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.digitalcommercialplatform.axa\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000045;)\npass tls $DCP_GEOFOOTPRINTER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev.virtualearth.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev.virtualearth.net\"; sid:4000046;)\npass tls $DCP_GEOFOOTPRINTER_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"spatialstream.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to spatialstream.com\"; sid: 4200266;)\n\n# Required for control plane on controlplane-prod-1\npass tls $DCP_CONTROLPLANE_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp.eu.auth0.com\"; sid:4000125;)\npass tls $DCP_CONTROLPLANE_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.auth0.com\"; sid:4000126;)\npass tls $DCP_CONTROLPLANE_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.digitalcommercialplatform.axa\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000187;)\npass tls $DCP_CONTROLPLANE_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp.auth0.com\"; sid:4000129;)\n\n\n# Required for physical assets on physicalassets-prod-1\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.digitalcommercialplatform.axa\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000047;)\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"axaxl-gis.cloud.esriuk.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axaxl-gis.cloud.esriuk.com\"; sid:4000048;)\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"axaxl-img.cloud.esriuk.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axaxl-img.cloud.esriuk.com\"; sid:4000049;)\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"login.microsoftonline.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://login.microsoftonline.com\"; sid:4000050;)\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.munichre.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.munichre.com\"; sid:4000051;)\npass tls $DCP_PHYSICALASSETS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev.virtualearth.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev.virtualearth.net\"; sid:4000052;)\n\n# Required for Databricks deployment on prod\npass tls $DCP_DATA_DATADOMAINS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"accounts.cloud.databricks.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://accounts.cloud.databricks.com\"; sid:4000266;)\npass tls $DCP_DATA_DATADOMAINS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"kinesis.eu-west-1.amazonaws.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://kinesis.eu-west-1.amazonaws.com\"; sid:4000267;)\npass tls $DCP_DATA_DATADOMAINS_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://tunnel.eu-west-1.cloud.databricks.com\"; sid:4000268;)\n\n# Required for portal prod\n# Rquired for datadog image, For some reason, layers of images listed in public.ecr.aws are hosted in d2glxqk2uabbnd.cloudfront.net.\n# cf https://anywhere.eks.amazonaws.com/docs/getting-started/nutanix/domains/ for d2glxqk2uabbnd.cloudfront.net,\npass tls $DCP_PORTAL_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"d2glxqk2uabbnd.cloudfront.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to d2glxqk2uabbnd.cloudfront.net owned by aws, required to pull some docker images\"; sid:4000305;)\npass tls $DCP_PORTAL_PROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.google.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to www.google.com/recaptcha\"; sid:4000306;)\n\n\n#######\n# PREPROD\n#######\n\n# Required for control plane on controlplane-ppd-1\npass tls $DCP_CONTROLPLANE_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-preproduction.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-preproduction.eu.auth0.com\"; sid:4000147;)\npass tls $DCP_CONTROLPLANE_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.auth0.com\"; sid:4000148;)\npass tls $DCP_CONTROLPLANE_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.preprod.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.preprod.dcpnphub.com\"; sid:4000159;)\n\n# Required for physical assets on physicalassets-ppd-1\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.preprod.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.preprod.dcpnphub.com\"; sid:4000155;)\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axaxl-gis.cloud.esriuk.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axaxl-gis.cloud.esriuk.com\"; sid:4000156;)\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axaxl-img.cloud.esriuk.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axaxl-img.cloud.esriuk.com\"; sid:4000151;)\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"login.microsoftonline.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://login.microsoftonline.com\"; sid:4000152;)\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.munichre.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.munichre.com\"; sid:4000153;)\npass tls $DCP_PHYSICALASSETS_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev.virtualearth.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev.virtualearth.net\"; sid:4000154;)\n\n# Required for location services on geofootprinter-ppd-1\npass tls $DCP_GEOFOOTPRINTER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.preprod.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000157;)\npass tls $DCP_GEOFOOTPRINTER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev.virtualearth.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev.virtualearth.net\"; sid:4000158;)\npass tls $DCP_GEOFOOTPRINTER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"spatialstream.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to spatialstream.com\"; sid:4000282;)\n\n# Required for cyber on cyber-ppd-1\npass tls $DCP_CYBER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.securityscorecard.io\"; sid:4000160;)\npass tls $DCP_CYBER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane.preprod.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane.digitalcommercialplatform.axa\"; sid:4000161;)\npass tls $DCP_CYBER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"platform-api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://platform-api.securityscorecard.io\"; sid:4000162;)\npass tls $DCP_CYBER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api-sraxa.boardofcyber-uat.dev\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api-sraxa.boardofcyber.io\"; sid:4000163;)\npass tls $DCP_CYBER_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.kamae-test.dojo-kamae.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.kamae-test.dojo-kamae.com\"; sid:4000194;)\n\n\n# Required for portal preprod\n# Rquired for datadog image, For some reason, layers of images listed in public.ecr.aws are hosted in d2glxqk2uabbnd.cloudfront.net.\n# cf https://anywhere.eks.amazonaws.com/docs/getting-started/nutanix/domains/ for d2glxqk2uabbnd.cloudfront.net,\npass tls $DCP_PORTAL_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"d2glxqk2uabbnd.cloudfront.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to d2glxqk2uabbnd.cloudfront.net owned by aws, required to pull some docker images\"; sid:4000287;)\npass tls $DCP_PORTAL_PREPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.google.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to www.google.com/recaptcha\"; sid:4000289;)\n\n##############\n# NON PROD\n##############\n\n# Required by pipeline to build the projects\n# /!\\ only add domains that should be accessed by all accounts\n# /!\\ double check any removal as it can breaks all the pipelines\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"pypi.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://pypi.org\"; sid:4000065;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"files.pythonhosted.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://files.pythonhosted.org\"; sid:4000069;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"kics.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://kics.io\"; sid:4000071;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"raw.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://raw.githubusercontent.com\"; sid:4000072;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"plugins.gradle.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to plugins.gradle.org\"; sid:4000166;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"repo.maven.apache.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to repo.maven.apache.org\"; sid:4000167;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"registry.npmjs.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to registry.npmjs.org \"; sid:4000168;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"npmjs.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to npmjs.org \"; sid:4000169;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"plugins-artifacts.gradle.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to plugins-artifacts.gradle.org \"; sid:4000170;)\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"nodejs.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress tonodejs.org \"; sid:4000174;)\n# For some reason, layers of images listed in public.ecr.aws are hosted in d2glxqk2uabbnd.cloudfront.net.\n# cf https://anywhere.eks.amazonaws.com/docs/getting-started/nutanix/domains/ for d2glxqk2uabbnd.cloudfront.net,\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; content:\"d2glxqk2uabbnd.cloudfront.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to d2glxqk2uabbnd.cloudfront.net owned by aws, required to pull some docker images\"; sid:4000176;)\n\n# vhiribarren - 2025/04/01 - temporary, while waiting for LZA 1.12 that should solve some issues in creating VPC endpoints\npass tls $NONPROD_NETS any -> $EXTERNAL_NET any (tls.sni; dotprefix; content:\".sagemaker.aws\"; endswith; nocase; flow:to_server; sid:4000188;)\n\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"repository.liferay.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://repository.liferay.com\"; sid:4000164;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"repository-cdn.liferay.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://repository-cdn.liferay.com\"; sid:4000165;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"mirrors.lax.liferay.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to mirrors.lax.liferay.com \"; sid:4000175;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"get.sdkman.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to get.sdkman.io\"; sid:4000177;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.sdkman.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to api.sdkman.io\"; sid:4000178;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"rpm.nodesource.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to rpm.nodesource.com\"; sid:4000179;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"services.gradle.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to services.gradle.org\"; sid:4000181;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"rubygems.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to rubygems.org\"; sid:4000182;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"learn-resources.liferay.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to learn-resources.liferay.com\"; sid:4000195;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"repo1.maven.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://repo1.maven.org\"; sid:4000278;)\npass tls $DCP_PORTAL_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.google.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to www.google.com/recaptcha\"; sid:4000213;)\n\n\n# Controlplane Non Prod\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000055;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-dev.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-dev.eu.auth0.com\"; sid:4000107;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-sandbox.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-sandbox.eu.auth0.com\"; sid:4000105;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-stage.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-stage.eu.auth0.com\"; sid:4000115;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.amazonlinux.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.amazonlinux.com\"; sid:4000099;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.auth0.com\"; sid:4000090;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dl.k6.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dl.k6.io\"; sid:4000116;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"idetoolkits.amazonwebservices.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://idetoolkits.amazonwebservices.com\"; sid:4000096;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"objects.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://objects.githubusercontent.com\"; sid:4000100;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-smartservices-sandbox.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-smartservices-sandbox.eu.auth0.com\"; sid:4000131;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; sid:4000133;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-dev.controlplane-dev-2.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-dev.controlplane-dev-2.dev.dcpnphub.com\"; sid:4000134;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000135;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-dev.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-dev.eu.auth0.com\"; sid:4000138;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-dcp-stage.eu.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-dcp-stage.eu.auth0.com\"; sid:4000139;)\npass tls $DCP_CONTROLPLANE_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"status.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://status.auth0.com, \"; sid:4000171;)\n\n\n# Cyber non prod\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000059;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api-sraxa.boardofcyber-uat.dev\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api-sraxa.boardofcyber-uat.dev\"; sid:4000075;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.cyber-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.cyber-uat-1.uat.dcpnphub.com\"; sid:4000056;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.securityscorecard.io\"; sid:4000054;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dl.k6.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dl.k6.io\"; sid:4000122;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"idetoolkits.amazonwebservices.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://idetoolkits.amazonwebservices.com\"; sid:4000101;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"platform-api.securityscorecard.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://platform-api.securityscorecard.io\"; sid:4000079;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; sid:4000127;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.kamae-test.dojo-kamae.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.kamae-test.dojo-kamae.com\"; sid:4000128;)\npass tls $DCP_CYBER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dcp-portal.portal-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Workaround for portal perf tests\"; sid:4000297;)\n\n\n\n# Geofootprinter non prod\npass tls $DCP_GEOFOOTPRINTER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000074;)\npass tls $DCP_GEOFOOTPRINTER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev.virtualearth.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev.virtualearth.net\"; sid:4000061;)\npass tls $DCP_GEOFOOTPRINTER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; sid:4000070;)\npass tls $DCP_GEOFOOTPRINTER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"spatialstream.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to spatialstream.com\"; sid:4000200;)\npass tls $DCP_GEOFOOTPRINTER_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"atlas.microsoft.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://atlas.microsoft.com/ \"; sid:4000264;)\n\n\n\n# Monitoring non prod\npass tls $DCP_MONITORING_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api-pp.se.axa-go.axa.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api-pp.se.axa-go.axa.com\"; sid:4000076;)\npass tls $DCP_MONITORING_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"onelogin.stg.axa.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://onelogin.stg.axa.com\"; sid:4000093;)\n\n# physical assets/property intelligence non prod\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"admin.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://admin.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000073;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"analytics.localstack.cloud\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://analytics.localstack.cloud\"; sid:4000082;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.assetsmanager.physicalassets-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.assetsmanager.physicalassets-uat-1.uat.dcpnphub.com\"; sid:4000057;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.geofootprinter-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.geofootprinter-uat-1.uat.dcpnphub.com\"; sid:4000064;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.munichre.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.munichre.com\"; sid:4000085;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.riskscoring.physicalassets-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.riskscoring.physicalassets-uat-1.uat.dcpnphub.com\"; sid:4000121;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axaxl-gis-qa.cloud.esriuk.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axaxl-gis-qa.cloud.esriuk.com\"; sid:4000067;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"compass.mongodb.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://compass.mongodb.com\"; sid:4000081;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dl.k6.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dl.k6.io\"; sid:4000104;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"downloads.mongodb.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://downloads.mongodb.com\"; sid:4000123;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"fastdl.mongodb.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://fastdl.mongodb.org\"; sid:4000113;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"idetoolkits.amazonwebservices.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://idetoolkits.amazonwebservices.com\"; sid:4000095;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"login.microsoftonline.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://login.microsoftonline.com\"; sid:4000084;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"registry.yarnpkg.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry.yarnpkg.com\"; sid:4000083;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"repo.mongodb.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://repo.mongodb.org\"; sid:4000117;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; sid:4000078;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-dev.controlplane-dev-2.dev.dcpnphub.com/api/v2/authorization\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-dev.controlplane-dev-2.dev.dcpnphub.com/api/v2/authorization\"; sid:4000087;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"mongodb.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to www.mongodb.org\"; sid:4000204;)\n\n# physical assets/property intelligence non prod - QA E2E test simulating a web browser\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.cookielaw.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.cookielaw.org\"; sid:4000230;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"release-dcp-auth-uat1.auth.eu-west-1.amazoncognito.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://release-dcp-auth-uat1.auth.eu-west-1.amazoncognito.com\"; sid:4000240;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.googletagmanager.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.googletagmanager.com\"; sid:4000241;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.auth0.com\"; sid:4000242;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.mapbox.com\"; sid:4000243;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"events.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://events.mapbox.com\"; sid:4000244;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"geolocation.onetrust.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://geolocation.onetrust.com\"; sid:4000245;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"uat-tenant-selection.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://uat-tenant-selection.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000246;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"tag.aticdn.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://tag.aticdn.net\"; sid:4000247;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"xnfwmvk.pa-cd.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://xnfwmvk.pa-cd.com\"; sid:4000261;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"eyesapi.applitools.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://eyesapi.applitools.com\"; sid:4000263;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"ufg-wus.applitools.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://ufg-wus.applitools.com\"; sid:4000309;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dashboard.physicalassets-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"For QA tests, allow egress to https://dashboard.physicalassets-uat-1.uat.dcpnphub.com\"; sid:4000293;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"uat-legal.portal-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"For QA tests, allow egress to https://uat-legal.portal-uat-1.uat.dcpnphub.com\"; sid:4000294;)\npass tls $DCP_PHYSICALASSETS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"login.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://login.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000295;)\n\n# dcp-platform-shared-1\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"aka.ms\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://aka.ms\"; sid:4000119;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"auth.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://auth.docker.io\"; sid:4000097;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"deb.debian.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://deb.debian.org\"; sid:4000080;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"dl-cdn.alpinelinux.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dl-cdn.alpinelinux.org\"; sid:4000098;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"idetoolkits.amazonwebservices.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://idetoolkits.amazonwebservices.com\"; sid:4000109;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"install.python-poetry.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://install.python-poetry.org\"; sid:4000114;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"objects.githubusercontent.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://objects.githubusercontent.com\"; sid:4000108;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"production.cloudflare.docker.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://production.cloudflare.docker.com\"; sid:4000094;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"registry-1.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry-1.docker.io\"; sid:4000088;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"rubygems.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://rubygems.org\"; sid:4000132;)\npass tls $DCP_PLATFORM_SHARED any -> $EXTERNAL_NET any (tls.sni; content:\"docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com\"; sid:4000146;)\n\n# Required for risk factor detection on nonprod\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.admin-main.controlplane-dev-1.dev.dcpnphub.com\"; sid:4000130;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.vexcelgroup.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.vexcelgroup.com\"; sid:4000136;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"data.geopf.fr\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://data.geopf.fr\"; sid:4000137;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev-dfeyer-api.riskfactordetection.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev-dfeyer-api.riskfactordetection.dev.dcpnphub.com\"; sid:4000172;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"dev-lviola-api.riskfactordetection.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://dev-lviola-api.riskfactordetection.dev.dcpnphub.com\"; sid:4000173;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.geofootprinter-dev-1.dev.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.geofootprinter-dev-1.dev.dcpnphub.com\"; sid:4000190;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"archive.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to archive.ubuntu.com\"; sid:4000248;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"security.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to security.ubuntu.com\"; sid:4000249;)\npass tls $DCP_RISKFACTORDETECTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"download.pytorch.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to download.pytorch.org \"; sid:4000250;)\n\n\n\n# Required for risk factor detection mlworkbenchon nonprod\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"archive.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to archive.ubuntu.com\"; sid:4000205;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"security.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to security.ubuntu.com\"; sid:4000206;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"registry-1.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry-1.docker.io\"; sid:4000207;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"production.cloudflare.docker.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://production.cloudflare.docker.com\"; sid:4000208;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"auth.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://auth.docker.io\"; sid:4000209;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.vexcelgroup.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.vexcelgroup.com\"; sid:4000217;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"data.geopf.fr\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://data.geopf.fr\"; sid:4000218;)\npass tls $DCP_RISKFACTOR_ML_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"download.pytorch.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to download.pytorch.org \"; sid:4000296;)\n\n\n# Required for fireprevention on nonprod\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"registry-1.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://registry-1.docker.io\"; sid:4000140;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"production.cloudflare.docker.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://production.cloudflare.docker.com\"; sid:4000141;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"auth.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://auth.docker.io\"; sid:4000142;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"axa-xl-dev.us.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://axa-xl-dev.us.auth0.com required for authentication\"; sid:4000183;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"nominatim.openstreetmap.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://nominatim.openstreetmap.org\"; sid:4000184;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.mapbox.com\"; sid:4000185;)\npass tls $DCP_FIREPREVENTION_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.scraperapi.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.scraperapi.com required scrape newspaper articles\"; sid:4000186;)\n\n\n# Required for Databricks deployment on nonprod\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"accounts.cloud.databricks.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://accounts.cloud.databricks.com\"; sid:4000143;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"kinesis.eu-west-1.amazonaws.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://kinesis.eu-west-1.amazonaws.com\"; sid:4000144;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://tunnel.eu-west-1.cloud.databricks.com\"; sid:4000189;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"archive.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://archive.ubuntu.com\"; sid:4000283;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"repos.azul.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://repos.azul.com\"; sid:4000284;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"security.ubuntu.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://security.ubuntu.com\"; sid:4000285;)\npass tls $DCP_DATA_DATADOMAINS_DEV any -> $EXTERNAL_NET any (tls.sni; content:\"ppa.launchpadcontent.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://ppa.launchpadcontent.net\"; sid:4000286;)\n\n# Required for DevOps nonprod\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cloud.mongodb.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://cloud.mongodb.com/\"; sid:4000180;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.playwright.dev\"; startswith; nocase; endswith; flow:to_server; msg:\"required for qa\"; sid:4000191;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"playwright.download.prss.microsoft.com\"; startswith; nocase; endswith; flow:to_server; msg:\"required for qa\"; sid:4000192;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; dotprefix; content:\".physicalassets-uat-1.uat.dcpnphub.com\"; ssl_state:client_hello; nocase; endswith; flow:to_server; msg:\"required for running qa on physicalassets-uat-1\"; sid:4000193;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; dotprefix; content:\".controlplane-uat-1.uat.dcpnphub.com\"; nocase; endswith; flow:to_server; msg:\"required for running qa on physicalassets-uat-1\"; sid:4000201;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"uat-legal.portal-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"required for qa\"; sid:4000202;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"checkpoint-api.hashicorp.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://checkpoint-api.hashicorp.com/\"; sid:4000203;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"registry-1.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://registry-1.docker.io\"; sid:4000210;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"mcr.microsoft.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://mcr.microsoft.com\"; sid:4000211;)\n\n# Required for property intelligence report\npass tls $DCP_REPORTFACTORY_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.mapbox.com/\"; sid:4000220;)\npass tls $DCP_REPORTFACTORY_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdnjs.cloudflare.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdnjs.cloudflare.com/\"; sid:4000225;)\npass tls $DCP_REPORTFACTORY_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"events.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://events.mapbox.com/\"; sid:4000226;)\n\n# For QA E2E tests in devops nonprod\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"release-dcp-auth-uat1.auth.eu-west-1.amazoncognito.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://release-dcp-auth-uat1.auth.eu-west-1.amazoncognito.com\"; sid:4000224;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.cookielaw.org\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.cookielaw.org\"; sid:4000231;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"www.googletagmanager.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://www.googletagmanager.com\"; sid:4000232;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cdn.auth0.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://cdn.auth0.com\"; sid:4000233;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.mapbox.com\"; sid:4000234;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"events.mapbox.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://events.mapbox.com\"; sid:4000235;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"geolocation.onetrust.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://geolocation.onetrust.com\"; sid:4000236;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"uat-tenant-selection.controlplane-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://uat-tenant-selection.controlplane-uat-1.uat.dcpnphub.com\"; sid:4000237;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"tag.aticdn.net\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://tag.aticdn.net\"; sid:4000238;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"api.geofootprinter-uat-1.uat.dcpnphub.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://api.geofootprinter-uat-1.uat.dcpnphub.com\"; sid:4000239;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"xnfwmvk.pa-cd.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://xnfwmvk.pa-cd.com\"; sid:4000260;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"eyesapi.applitools.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://eyesapi.applitools.com\"; sid:4000262;)\npass tls $DCP_DEVOPS_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"ufg-wus.applitools.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://ufg-wus.applitools.com\"; sid:4000310;)\n\n\n# Required for Monitoring nonprod\npass tls $DCP_MONITORING_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"registry-1.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://registry-1.docker.io\"; sid:4000227;)\npass tls $DCP_MONITORING_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"auth.docker.io\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress to https://auth.docker.io\"; sid:4000228;)\n\n\n# Required for Mongodb nonprod\npass tls $DCP_MONGODB_NONPROD any -> $EXTERNAL_NET any (tls.sni; content:\"cloud.mongodb.com\"; startswith; nocase; endswith; flow:to_server; msg:\"Allow egress https://cloud.mongodb.com/\"; sid:4000258;)\n\n# Block any egress traffic not already allowed.\n\n# Warning: if we do not exclude the TLS traffic, if can conflict with above rule if TLS headers are too big.\n# Packets can be fragmented when they are above 1460. The Fragmented segments are seen as \"proto:tcp\"\n# and \"app_proto:tls\" but Suricata can't see the client hello until all of the Fragmented segments are reassembled.\n# The Drop established condition from the stateful default action is dropping the segments before this can happen.\n# We need to use catch all rules which will allow base TCP connections which are not in established session as well\n# as reject rules to drop TLS connections not specifically allowed via Suricata rules.\n\nreject tcp $HOME_NET any -> $EXTERNAL_NET any (app-layer-protocol:!tls; app-layer-protocol:!http; msg:\"Default Egress TCP Reject\"; flow:to_server; sid:4000110;)\ndrop udp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Default egress UDP drop\"; sid:4000111;)\ndrop icmp $HOME_NET any -> $EXTERNAL_NET any (msg:\"Default egress ICMP drop\"; sid:4000112;)\n"
+          },
+          "statefulruleoptions": {
+            "ruleorder": "STRICT_ORDER"
+          }
+        }
+      },
+      "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/ingress-suricata-rules-ip": {
+        "metadata": {
+          "rulegrouparn": "arn:aws:network-firewall:eu-west-1:590183832485:stateful-rulegroup/ingress-suricata-rules-ip",
+          "rulegroupname": "ingress-suricata-rules-ip",
+          "rulegroupid": "2abb4d22-9630-481e-bcd8-f82734494c01",
+          "type": "STATEFUL",
+          "capacity": 2000,
+          "rulegroupstatus": "ACTIVE",
+          "tags": [
+            {
+              "key": "Tag1",
+              "value": "Value1"
+            },
+            {
+              "key": "local.owner",
+              "value": "network"
+            },
+            {
+              "key": "global.project",
+              "value": "network"
+            },
+            {
+              "key": "local.pii",
+              "value": "false"
+            },
+            {
+              "key": "local.is_regulated",
+              "value": "false"
+            },
+            {
+              "key": "global.app",
+              "value": "firewall"
+            },
+            {
+              "key": "global.env",
+              "value": "production"
+            },
+            {
+              "key": "local.data-residency",
+              "value": "irl"
+            },
+            {
+              "key": "global.dataclass",
+              "value": "confidential"
+            },
+            {
+              "key": "Tag2",
+              "value": "Value2"
+            }
+          ],
+          "consumedcapacity": 19,
+          "numberofassociations": 1,
+          "encryptionconfiguration": {
+            "keyid": "arn:aws:kms:eu-west-1:590183832485:key/72b07ebf-2ff5-49fd-a57f-f8c682ac4d35",
+            "type": "CUSTOMER_KMS"
+          },
+          "lastmodifiedtime": "2025-07-28T10:40:08.148000+02:00"
+        },
+        "definition": {
+          "rulevariables": {
+            "ipsets": {
+              "data_governance_nonprod": {
+                "definition": [
+                  "10.8.32.0/23"
+                ]
+              },
+              "dcp_controlplane_nonprod": {
+                "definition": [
+                  "10.8.10.0/23",
+                  "10.8.22.0/23",
+                  "10.8.14.0/23"
+                ]
+              },
+              "dcp_controlplane_preprod": {
+                "definition": [
+                  "10.4.8.0/23"
+                ]
+              },
+              "dcp_controlplane_prod": {
+                "definition": [
+                  "10.0.4.0/23"
+                ]
+              },
+              "dcp_cyber_nonprod": {
+                "definition": [
+                  "10.8.2.0/23",
+                  "10.8.18.0/23"
+                ]
+              },
+              "dcp_cyber_preprod": {
+                "definition": [
+                  "10.4.4.0/23"
+                ]
+              },
+              "dcp_cyber_prod": {
+                "definition": [
+                  "10.0.2.0/23"
+                ]
+              },
+              "dcp_databricks_nonprod": {
+                "definition": [
+                  "10.8.4.0/23"
+                ]
+              },
+              "dcp_dataplatform_nonprod": {
+                "definition": [
+                  "10.8.36.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_dev": {
+                "definition": [
+                  "10.8.54.0/23"
+                ]
+              },
+              "dcp_data_databricks_network_prod": {
+                "definition": [
+                  "10.0.14.0/23"
+                ]
+              },
+              "dcp_data_datadomains_dev": {
+                "definition": [
+                  "10.8.44.0/23"
+                ]
+              },
+              "dcp_data_datadomains_prod": {
+                "definition": [
+                  "10.0.20.0/23"
+                ]
+              },
+              "dcp_devops_nonprod": {
+                "definition": [
+                  "10.8.34.0/23"
+                ]
+              },
+              "dcp_fireprevention_nonprod": {
+                "definition": [
+                  "10.8.50.0/23"
+                ]
+              },
+              "dcp_geofootprinter_nonprod": {
+                "definition": [
+                  "10.8.20.0/23",
+                  "10.8.16.0/23"
+                ]
+              },
+              "dcp_geofootprinter_preprod": {
+                "definition": [
+                  "10.4.10.0/23"
+                ]
+              },
+              "dcp_geofootprinter_prod": {
+                "definition": [
+                  "10.0.8.0/23"
+                ]
+              },
+              "dcp_mongodb_nonprod": {
+                "definition": [
+                  "10.8.8.0/23"
+                ]
+              },
+              "dcp_monitoring_nonprod": {
+                "definition": [
+                  "10.8.40.0/23",
+                  "10.8.68.0/23"
+                ]
+              },
+              "dcp_monitoring_preprod": {
+                "definition": [
+                  "10.4.18.0/23"
+                ]
+              },
+              "dcp_monitoring_prod": {
+                "definition": [
+                  "10.0.10.0/23"
+                ]
+              },
+              "dcp_network_central_ingress": {
+                "definition": [
+                  "10.240.4.0/22"
+                ]
+              },
+              "dcp_physicalassets_nonprod": {
+                "definition": [
+                  "10.8.0.0/23",
+                  "10.8.6.0/23"
+                ]
+              },
+              "dcp_physicalassets_preprod": {
+                "definition": [
+                  "10.4.2.0/23"
+                ]
+              },
+              "dcp_physicalassets_prod": {
+                "definition": [
+                  "10.0.6.0/23"
+                ]
+              },
+              "dcp_platform_shared": {
+                "definition": [
+                  "10.8.26.0/23"
+                ]
+              },
+              "dcp_portal_nonprod": {
+                "definition": [
+                  "10.8.28.0/23",
+                  "10.8.42.0/23"
+                ]
+              },
+              "dcp_portal_preprod": {
+                "definition": [
+                  "10.4.6.0/23"
+                ]
+              },
+              "dcp_portal_prod": {
+                "definition": [
+                  "10.0.12.0/23"
+                ]
+              },
+              "dcp_reportfactory_nonprod": {
+                "definition": [
+                  "10.8.66.0/23"
+                ]
+              },
+              "dcp_riskfactordetection_nonprod": {
+                "definition": [
+                  "10.8.38.0/23"
+                ]
+              },
+              "dcp_riskfactor_ml_nonprod": {
+                "definition": [
+                  "10.8.60.0/23"
+                ]
+              },
+              "home_net": {
+                "definition": [
+                  "10.0.0.0/8",
+                  "192.168.0.0/16",
+                  "172.16.0.0/12"
+                ]
+              },
+              "nonprod_nets": {
+                "definition": [
+                  "10.40.0.0/14",
+                  "10.8.0.0/14",
+                  "10.24.0.0/14"
+                ]
+              },
+              "partner_ihs_nonprod": {
+                "definition": [
+                  "10.8.30.0/23"
+                ]
+              },
+              "partner_kayrros_nonprod": {
+                "definition": [
+                  "10.8.24.0/23"
+                ]
+              },
+              "preprod_nets": {
+                "definition": [
+                  "10.20.0.0/14",
+                  "10.36.0.0/14",
+                  "10.4.0.0/14"
+                ]
+              },
+              "prod_nets": {
+                "definition": [
+                  "10.32.0.0/14",
+                  "10.0.0.0/14",
+                  "10.16.0.0/14"
+                ]
+              },
+              "sbx_nets": {
+                "definition": [
+                  "10.224.0.0/13",
+                  "10.232.0.0/13"
+                ]
+              }
+            }
+          },
+          "rulessource": {
+            "rulesstring": "#This Logs Absolutley Everything\nalert http $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West HTTP traffic\"; flow:to_server, established; sid:5200001;)\nalert ftp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West FTP traffic\"; flow:to_server, established; sid:5200002;)\nalert tls $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West TLS traffic\"; flow:to_server, established; sid:5200003;)\nalert smb $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West SMB traffic\"; flow:to_server, established; sid:5200004;)\nalert dns $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West DNS traffic\"; flow:to_server, established; sid:5200005;)\nalert dcerpc $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West DCERPC traffic\"; flow:to_server, established; sid:5200006;)\nalert ssh $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West SSH traffic\"; flow:to_server, established; sid:5200007;)\nalert smtp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West SMTP traffic\"; flow:to_server, established; sid:5200008;)\nalert imap $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West IMAP traffic\"; flow:to_server, established; sid:5200009;)\nalert nfs $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West NFS traffic\"; flow:to_server, established; sid:5200010;)\nalert ikev2 $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West IKEV2 traffic\"; flow:to_server, established; sid:5200011;)\nalert krb5 $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West KRB5 traffic\"; flow:to_server, established; sid:5200012;)\nalert ntp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West NTP traffic\"; flow:to_server, established; sid:5200013;)\nalert snmp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West SNMP traffic\"; flow:to_server, established; sid:5200014;)\nalert tftp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West TFTP traffic\"; flow:to_server, established; sid:5200015;)\nalert tcp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West TCP traffic\"; flow:to_server, established; sid:5200016;)\nalert udp $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West UDP traffic\"; flow:to_server, established; sid:5200017;)\nalert ip $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West Any traffic\"; flow:to_server, established; sid:5200018;)\nalert tls $EXTERNAL_NET any -> $HOME_NET any (msg:\"East-West TLS JA3 traffic\"; ja3.hash; content:!\"00000000000000000000000000000000\"; flow:to_server, established; sid:5200019;)\n"
+          },
+          "statefulruleoptions": {
+            "ruleorder": "STRICT_ORDER"
+          }
+        }
+      }
+    }
+  }
+]

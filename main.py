@@ -2,7 +2,6 @@ import os
 import json
 from datetime import datetime
 from utils.session import get_sso_session
-
 from discovery.vpcs import list_vpcs
 from discovery.subnets import list_subnets
 from discovery.route_tables import list_route_tables
@@ -27,11 +26,6 @@ def save_global_output(data):
     with open("output/global_topology.json", "w") as f:
         json.dump(data, f, indent=2, default=convert)
 
-def save_account_output(account_id, data):
-    os.makedirs("output", exist_ok=True)
-    filename = f"output/{account_id}.json"
-    with open(filename, "w") as f:
-        json.dump(data, f, indent=2, default=convert)
 
 with open("accounts.json") as f:
     accounts = json.load(f)
@@ -40,12 +34,12 @@ regions = ["us-east-1", "eu-west-1", "eu-central-1"]
 global_data = {}
 
 for acc in accounts:
-    account_id = acc["account_id"]
+    account_name = acc["account_name"]
     session = get_sso_session(acc)
-    global_data[account_id] = {}
+    global_data[account_name] = {}
 
     for reg in regions:
-        print(f"🔍 Discovering {account_id} in {reg}")
+        print(f"🔍 Discovering {account_name} in {reg}")
         region_data = {
             "vpcs": list_vpcs(session, reg),
             "subnets": list_subnets(session, reg),
@@ -63,10 +57,9 @@ for acc in accounts:
             "endpoint_services": list_vpc_endpoint_services(session, reg),
         }
 
-        global_data[account_id][reg] = region_data
+        global_data[account_name][reg] = region_data
 
-    save_account_output(account_id, global_data[account_id])
-    print(f" Saved per-account file for {account_id}")
+    print(f" Done discovering {account_name}")
 
 save_global_output(global_data)
 print(" Saved global_topology.json")
